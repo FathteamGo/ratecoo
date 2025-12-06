@@ -8,53 +8,53 @@ export default function Dashboard() {
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {/* Total Projects */}
-        <div className="group relative bg-white rounded-2xl shadow-lg border border-slate-200 p-6 hover:shadow-xl transition-all duration-300 overflow-hidden">
-          <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
+        <div className="group relative bg-white dark:bg-slate-800 rounded-2xl shadow-lg dark:shadow-2xl dark:shadow-slate-950/50 border border-slate-200 dark:border-slate-700 p-6 hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all duration-300 overflow-hidden">
+          <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 dark:from-blue-500/20 dark:to-indigo-500/20 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
           <div className="relative">
             <div className="flex items-center justify-between mb-4">
               <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
                 <FolderKanban className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded-full">
+              <span className="text-xs font-semibold text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-950/30 px-2 py-1 rounded-full">
                 +0%
               </span>
             </div>
-            <p className="text-sm font-medium text-slate-600 mb-1">Total Projects</p>
-            <p className="text-3xl font-bold text-slate-900">0</p>
+            <p className="text-sm font-medium text-slate-600 dark:text-slate-400 mb-1">Total Projects</p>
+            <p className="text-3xl font-bold text-slate-900 dark:text-white">0</p>
           </div>
         </div>
 
         {/* Total Reviews */}
-        <div className="group relative bg-white rounded-2xl shadow-lg border border-slate-200 p-6 hover:shadow-xl transition-all duration-300 overflow-hidden">
-          <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-yellow-500/10 to-orange-500/10 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
+        <div className="group relative bg-white dark:bg-slate-800 rounded-2xl shadow-lg dark:shadow-2xl dark:shadow-slate-950/50 border border-slate-200 dark:border-slate-700 p-6 hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all duration-300 overflow-hidden">
+          <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-yellow-500/10 to-orange-500/10 dark:from-yellow-500/20 dark:to-orange-500/20 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
           <div className="relative">
             <div className="flex items-center justify-between mb-4">
               <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
                 <Star className="w-6 h-6 text-white fill-white" />
               </div>
-              <span className="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded-full">
+              <span className="text-xs font-semibold text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-950/30 px-2 py-1 rounded-full">
                 +0%
               </span>
             </div>
-            <p className="text-sm font-medium text-slate-600 mb-1">Total Reviews</p>
-            <p className="text-3xl font-bold text-slate-900">0</p>
+            <p className="text-sm font-medium text-slate-600 dark:text-slate-400 mb-1">Total Reviews</p>
+            <p className="text-3xl font-bold text-slate-900 dark:text-white">0</p>
           </div>
         </div>
 
         {/* Average Rating */}
-        <div className="group relative bg-white rounded-2xl shadow-lg border border-slate-200 p-6 hover:shadow-xl transition-all duration-300 overflow-hidden">
-          <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
+        <div className="group relative bg-white dark:bg-slate-800 rounded-2xl shadow-lg dark:shadow-2xl dark:shadow-slate-950/50 border border-slate-200 dark:border-slate-700 p-6 hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all duration-300 overflow-hidden">
+          <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-500/10 to-pink-500/10 dark:from-purple-500/20 dark:to-pink-500/20 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
           <div className="relative">
             <div className="flex items-center justify-between mb-4">
               <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center shadow-lg">
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded-full">
+              <span className="text-xs font-semibold text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-950/30 px-2 py-1 rounded-full">
                 +0%
               </span>
             </div>
-            <p className="text-sm font-medium text-slate-600 mb-1">Avg. Rating</p>
-            <p className="text-3xl font-bold text-slate-900">0.0</p>
+            <p className="text-sm font-medium text-slate-600 dark:text-slate-400 mb-1">Avg. Rating</p>
+            <p className="text-3xl font-bold text-slate-900 dark:text-white">0.0</p>
           </div>
         </div>
 
@@ -80,52 +80,52 @@ export default function Dashboard() {
       {/* Quick Actions & Recent Activity */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Quick Actions */}
-        <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-6">
-          <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-            <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg dark:shadow-2xl dark:shadow-slate-950/50 border border-slate-200 dark:border-slate-700 p-6">
+          <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+            <div className="w-2 h-2 bg-blue-600 dark:bg-blue-500 rounded-full"></div>
             Quick Actions
           </h3>
           <div className="space-y-3">
-            <a href="/projects/new" className="flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl hover:shadow-md transition-all duration-300 group">
+            <a href="/projects/new" className="flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 rounded-xl hover:shadow-md dark:hover:shadow-slate-900/50 transition-all duration-300 group">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
                   <FolderKanban className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-slate-900">Create Project</p>
-                  <p className="text-xs text-slate-600">Start collecting reviews</p>
+                  <p className="text-sm font-semibold text-slate-900 dark:text-white">Create Project</p>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">Start collecting reviews</p>
                 </div>
               </div>
-              <ArrowUpRight className="w-5 h-5 text-blue-600 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              <ArrowUpRight className="w-5 h-5 text-blue-600 dark:text-blue-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </a>
 
-            <a href="/projects" className="flex items-center justify-between p-4 bg-slate-50 rounded-xl hover:shadow-md transition-all duration-300 group">
+            <a href="/projects" className="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl hover:shadow-md dark:hover:shadow-slate-900/50 transition-all duration-300 group">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-slate-200 rounded-lg flex items-center justify-center">
-                  <Eye className="w-5 h-5 text-slate-700" />
+                <div className="w-10 h-10 bg-slate-200 dark:bg-slate-700 rounded-lg flex items-center justify-center">
+                  <Eye className="w-5 h-5 text-slate-700 dark:text-slate-300" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-slate-900">View Projects</p>
-                  <p className="text-xs text-slate-600">Manage existing projects</p>
+                  <p className="text-sm font-semibold text-slate-900 dark:text-white">View Projects</p>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">Manage existing projects</p>
                 </div>
               </div>
-              <ArrowUpRight className="w-5 h-5 text-slate-600 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              <ArrowUpRight className="w-5 h-5 text-slate-600 dark:text-slate-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </a>
           </div>
         </div>
 
         {/* Recent Activity */}
-        <div className="lg:col-span-2 bg-white rounded-2xl shadow-lg border border-slate-200 p-6">
-          <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-            <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+        <div className="lg:col-span-2 bg-white dark:bg-slate-800 rounded-2xl shadow-lg dark:shadow-2xl dark:shadow-slate-950/50 border border-slate-200 dark:border-slate-700 p-6">
+          <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+            <div className="w-2 h-2 bg-purple-600 dark:bg-purple-500 rounded-full"></div>
             Recent Activity
           </h3>
           <div className="text-center py-12">
-            <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Activity className="w-8 h-8 text-slate-400" />
+            <div className="w-16 h-16 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Activity className="w-8 h-8 text-slate-400 dark:text-slate-500" />
             </div>
-            <p className="text-slate-600 font-medium">No activity yet</p>
-            <p className="text-sm text-slate-500 mt-2">Create your first project to get started</p>
+            <p className="text-slate-600 dark:text-slate-300 font-medium">No activity yet</p>
+            <p className="text-sm text-slate-500 dark:text-slate-400 mt-2">Create your first project to get started</p>
           </div>
         </div>
       </div>

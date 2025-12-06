@@ -214,14 +214,14 @@ export default function HomePage() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-24 bg-gradient-to-b from-slate-50 to-white">
+      <section id="pricing" className="py-24 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800 relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-bold text-slate-900 mb-4"
+              className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4"
             >
               Simple, Transparent Pricing
             </motion.h2>
@@ -230,7 +230,7 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-xl text-slate-600"
+              className="text-xl text-slate-600 dark:text-slate-300"
             >
               Start free, upgrade when you need more power
             </motion.p>
@@ -242,15 +242,15 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl border-2 border-slate-200 p-8 hover:border-blue-300 transition-all duration-300"
+              className="bg-white dark:bg-slate-800 rounded-2xl border-2 border-slate-200 dark:border-slate-700 p-8 hover:border-blue-300 dark:hover:border-blue-500 transition-all duration-300"
             >
               <div className="mb-8">
-                <h3 className="text-2xl font-bold text-slate-900 mb-2">Starter</h3>
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Starter</h3>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-5xl font-bold text-slate-900">$0</span>
-                  <span className="text-lg text-slate-600">/month</span>
+                  <span className="text-5xl font-bold text-slate-900 dark:text-white">$0</span>
+                  <span className="text-lg text-slate-600 dark:text-slate-400">/month</span>
                 </div>
-                <p className="text-slate-600 mt-2">Perfect for getting started</p>
+                <p className="text-slate-600 dark:text-slate-400 mt-2">Perfect for getting started</p>
               </div>
 
               <ul className="space-y-4 mb-8">
@@ -263,15 +263,15 @@ export default function HomePage() {
                   '"Powered by RateCoo" badge',
                 ].map((item, i) => (
                   <li key={i} className="flex gap-3 items-start">
-                    <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">{item}</span>
+                    <CheckCircle2 className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700 dark:text-slate-300">{item}</span>
                   </li>
                 ))}
               </ul>
 
               <a
                 href="/auth/register"
-                className="block w-full px-6 py-3 border-2 border-blue-600 text-blue-600 rounded-xl hover:bg-blue-50 font-semibold text-center transition-all duration-300"
+                className="block w-full px-6 py-3 border-2 border-blue-600 dark:border-blue-500 text-blue-600 dark:text-blue-400 rounded-xl hover:bg-blue-50 dark:hover:bg-blue-950/30 font-semibold text-center transition-all duration-300"
               >
                 Start Free
               </a>
@@ -336,10 +336,10 @@ export default function HomePage() {
             transition={{ delay: 0.2 }}
             className="mt-8 text-center"
           >
-            <div className="inline-block bg-slate-900 text-white rounded-xl px-8 py-6">
+            <div className="inline-block bg-slate-900 dark:bg-slate-800 text-white rounded-xl px-8 py-6 border border-transparent dark:border-slate-700">
               <h4 className="text-lg font-bold mb-2">Need Enterprise Features?</h4>
-              <p className="text-slate-300 mb-4">Custom solutions, SLA, dedicated support & more</p>
-              <a href="mailto:sales@ratecoo.com" className="text-blue-400 hover:text-blue-300 font-semibold">
+              <p className="text-slate-300 dark:text-slate-400 mb-4">Custom solutions, SLA, dedicated support & more</p>
+              <a href="mailto:sales@ratecoo.com" className="text-blue-400 dark:text-blue-300 hover:text-blue-300 dark:hover:text-blue-200 font-semibold">
                 Contact Sales →
               </a>
             </div>
