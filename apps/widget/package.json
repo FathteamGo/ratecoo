@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "preact": "^10.21.0",
-    "@ratecoo/db": "*"
+    "@ratecoo/db": "workspace:*"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.8.2",

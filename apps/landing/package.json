@@ -10,11 +10,11 @@
   },
   "dependencies": {
     "next": "^16.0.0",
-    "react": "^19.0.0-rc",
-    "react-dom": "^19.0.0-rc",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "framer-motion": "^11.0.3",
-    "lucide-react": "^0.317.0",
-    "@ratecoo/ui": "*"
+    "lucide-react": "^0.263.1",
+    "@ratecoo/ui": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.10.5",
