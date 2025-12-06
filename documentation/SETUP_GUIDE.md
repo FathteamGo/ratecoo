@@ -68,7 +68,7 @@ This will start all 4 apps:
 - Landing: http://localhost:3000
 - Member: http://localhost:3001
 - Admin: http://localhost:3002
-- Widget: http://localhost:5173
+- Widget: http://localhost:3003
 
 ## Deployment to Vercel
 

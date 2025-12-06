@@ -15,7 +15,7 @@ Use this checklist to deploy RateCoo to Vercel.
 - [ ] Landing loads at http://localhost:3000
 - [ ] Member loads at http://localhost:3001
 - [ ] Admin loads at http://localhost:3002
-- [ ] Widget loads at http://localhost:5173
+- [ ] Widget loads at http://localhost:3003
 
 ### GitHub Setup
 - [ ] GitHub account ready

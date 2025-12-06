@@ -120,7 +120,7 @@ Secara default, aplikasi akan berjalan di port berikut:
 - **Landing Page**: http://localhost:3000
 - **Member Dashboard**: http://localhost:3001
 - **Admin / API**: http://localhost:3002
-- **Widget Dev**: http://localhost:5173---
+- **Widget Dev**: http://localhost:3003
 
 ## 🧪 Development Workflow
 
