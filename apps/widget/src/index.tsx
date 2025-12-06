@@ -18,6 +18,7 @@ function ReviewWidget({ projectId }: { projectId: string }) {
   const [email, setEmail] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
   const [rating, setRating] = useState(5);
+  const [hoverRating, setHoverRating] = useState(0);
   const [comment, setComment] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -190,8 +191,13 @@ function ReviewWidget({ projectId }: { projectId: string }) {
             h("input", {
               type: "tel",
               value: whatsapp,
-              onInput: (e) => setWhatsapp((e.target as HTMLInputElement).value),
-              placeholder: "+62812345678",
+              onInput: (e) => {
+                let value = (e.target as HTMLInputElement).value;
+                // Remove + symbol if present
+                value = value.replace(/\+/g, '');
+                setWhatsapp(value);
+              },
+              placeholder: "62812345678",
               required: true,
               style: {
                 width: "100%",
@@ -208,21 +214,32 @@ function ReviewWidget({ projectId }: { projectId: string }) {
             { style: { marginBottom: "16px" } },
             h("label", null, "Rating"),
             h(
-              "select",
+              "div",
               {
-                value: rating,
-                onChange: (e) =>
-                  setRating(parseInt((e.target as HTMLSelectElement).value)),
                 style: {
-                  width: "100%",
-                  padding: "8px",
+                  display: "flex",
+                  gap: "8px",
                   marginTop: "4px",
-                  border: "1px solid #ddd",
-                  borderRadius: "4px",
+                  fontSize: "32px",
                 },
               },
-              [5, 4, 3, 2, 1].map((r) =>
-                h("option", { value: r }, `${r} Star${r > 1 ? "s" : ""}`)
+              [1, 2, 3, 4, 5].map((star) =>
+                h(
+                  "span",
+                  {
+                    key: star,
+                    onClick: () => setRating(star),
+                    onMouseEnter: () => setHoverRating(star),
+                    onMouseLeave: () => setHoverRating(0),
+                    style: {
+                      cursor: "pointer",
+                      color: (hoverRating || rating) >= star ? "#fbbf24" : "#d1d5db",
+                      transition: "color 0.2s",
+                      userSelect: "none",
+                    },
+                  },
+                  "★"
+                )
               )
             )
           ),

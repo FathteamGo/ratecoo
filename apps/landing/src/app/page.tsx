@@ -2,12 +2,13 @@
 
 import { motion } from "framer-motion";
 import { CheckCircle2, Zap, Lock, Smartphone, Star, TrendingUp, MessageSquare, BarChart3, Globe, Sparkles } from "lucide-react";
+import { ThemeToggle } from "@ratecoo/ui";
 
 export default function HomePage() {
   return (
     <>
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/50">
+      <nav className="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-700/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
@@ -17,16 +18,17 @@ export default function HomePage() {
               RateCoo
             </span>
           </div>
-          <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-slate-600 hover:text-slate-900 transition-colors">
+          <div className="hidden md:flex items-center gap-6">
+            <a href="#features" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
               Features
             </a>
-            <a href="#pricing" className="text-slate-600 hover:text-slate-900 transition-colors">
+            <a href="#pricing" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
               Pricing
             </a>
-            <a href="/auth/signin" className="text-slate-600 hover:text-slate-900 transition-colors">
+            <a href="/auth/signin" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
               Login
             </a>
+            <ThemeToggle />
             <a
               href="/auth/register"
               className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 font-medium"
@@ -41,34 +43,32 @@ export default function HomePage() {
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="relative py-24 md:py-32 overflow-hidden"
+        className="relative py-24 md:py-40 overflow-visible"
       >
-        {/* Background Effects */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50" />
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiM5M2MzZWUiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRoLTJWMTRoMnYyMHptMCAwdjJoLTJ2LTJoMnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-40" />
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
+          <div className="text-center relative">
+            {/* Dark overlay for text readability in dark mode */}
+            <div className="absolute -inset-20 bg-gradient-to-b from-slate-900/40 via-slate-900/20 to-transparent dark:from-slate-900/60 dark:via-slate-900/40 dark:to-transparent rounded-3xl -z-10 blur-3xl" />
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full border border-blue-200/50 mb-8"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-full border border-blue-200/60 dark:border-slate-600/60 mb-8 shadow-sm"
             >
-              <Sparkles className="w-4 h-4 text-blue-600" />
-              <span className="text-sm font-medium text-slate-700">Trusted by 10,000+ businesses worldwide</span>
+              <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+              <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Trusted by 10,000+ businesses worldwide</span>
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-5xl md:text-7xl font-extrabold text-slate-900 mb-6 leading-tight"
+              className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white mb-6 leading-tight tracking-tight"
             >
               Collect 5-Star Reviews
               <br />
-              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 dark:from-blue-400 dark:via-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
                 in Seconds
               </span>
             </motion.h1>
@@ -77,7 +77,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-xl md:text-2xl text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed"
+              className="text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed"
             >
               The modern review & rating widget that turns visitors into advocates. 
               Setup in 2 minutes, collect reviews forever.
@@ -98,7 +98,7 @@ export default function HomePage() {
               </a>
               <a
                 href="#features"
-                className="px-8 py-4 bg-white border-2 border-slate-200 text-slate-700 rounded-xl hover:border-blue-600 hover:text-blue-600 transition-all duration-300 text-lg font-semibold"
+                className="px-8 py-4 bg-white dark:bg-slate-800/80 border-2 border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-200 rounded-xl hover:border-blue-600 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 text-lg font-semibold backdrop-blur"
               >
                 See How It Works
               </a>
@@ -109,7 +109,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="grid grid-cols-3 gap-8 mt-16 max-w-2xl mx-auto"
+              className="grid grid-cols-3 gap-8 mt-16 max-w-2xl mx-auto relative z-10"
             >
               {[
                 { label: "Active Users", value: "10K+" },
@@ -117,8 +117,8 @@ export default function HomePage() {
                 { label: "Countries", value: "50+" },
               ].map((stat, i) => (
                 <div key={i} className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-slate-900 mb-1">{stat.value}</div>
-                  <div className="text-sm text-slate-600">{stat.label}</div>
+                  <div className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-1">{stat.value}</div>
+                  <div className="text-sm text-slate-600 dark:text-slate-400">{stat.label}</div>
                 </div>
               ))}
             </motion.div>
@@ -127,14 +127,14 @@ export default function HomePage() {
       </motion.section>
 
       {/* Features Section */}
-      <section id="features" className="py-24 bg-white">
+      <section id="features" className="py-24 bg-white dark:bg-slate-900 relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-bold text-slate-900 mb-4"
+              className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4"
             >
               Everything You Need to Succeed
             </motion.h2>
@@ -143,7 +143,7 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-xl text-slate-600 max-w-2xl mx-auto"
+              className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto"
             >
               Powerful features designed to help you collect and showcase reviews effortlessly
             </motion.p>
@@ -194,7 +194,7 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group relative bg-white rounded-2xl p-8 border border-slate-200 hover:border-transparent hover:shadow-2xl transition-all duration-300"
+                className="group relative bg-white dark:bg-slate-800 rounded-2xl p-8 border border-slate-200 dark:border-slate-700 hover:border-transparent hover:shadow-2xl dark:hover:shadow-2xl dark:hover:shadow-slate-900/50 transition-all duration-300"
               >
                 <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300" 
                      style={{ backgroundImage: `linear-gradient(to bottom right, var(--tw-gradient-stops))` }} />
@@ -203,10 +203,10 @@ export default function HomePage() {
                   <feature.icon className="w-7 h-7 text-white" />
                 </div>
                 
-                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-slate-600 leading-relaxed">{feature.desc}</p>
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{feature.desc}</p>
               </motion.div>
             ))}
           </div>

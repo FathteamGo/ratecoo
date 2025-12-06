@@ -44,3 +44,7 @@ next-env.d.ts
 /packages/db/node_modules
 /packages/ui/node_modules
 /apps/member/.next
+
+# Local SQLite Database
+local.db
+packages/db/local.db

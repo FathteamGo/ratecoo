@@ -1,6 +1,8 @@
 import { createClient } from "@libsql/client";
 import { drizzle } from "drizzle-orm/libsql";
 import * as schema from "./schema";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
 
 let db: ReturnType<typeof drizzle> | null = null;
 
@@ -20,8 +22,12 @@ function getDb() {
       throw new Error("TURSO_DATABASE_URL is not set in production");
     }
   } else {
-    // Development: Use local SQLite database via file:// URI
-    url = "file:./local.db";
+    // Development: Use local SQLite database
+    // Use absolute path to packages/db/local.db
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = dirname(__filename);
+    const dbPath = join(__dirname, "..", "local.db");
+    url = `file:${dbPath}`;
   }
 
   const client = createClient({
