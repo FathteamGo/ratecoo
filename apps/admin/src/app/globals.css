@@ -7,11 +7,43 @@ html {
 }
 
 body {
-  @apply bg-white dark:bg-gradient-to-br dark:from-slate-900 dark:to-slate-800 text-slate-900 dark:text-slate-100 antialiased;
+  @apply antialiased;
   background-attachment: fixed;
+  position: relative;
 }
 
-/* Aurora Borealis effect */
+/* Light mode: Clean gradient background */
+body {
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 50%, #f1f5f9 100%);
+}
+
+/* Dark mode: Deep space gradient */
+.dark body {
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 25%, #0f172a 50%, #1e293b 75%, #0f172a 100%);
+  background-size: 400% 400%;
+  animation: darkGradient 20s ease infinite;
+}
+
+/* Light mode: Subtle pattern overlay */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.03) 0%, transparent 50%),
+                    radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 1;
+}
+
+.dark body::after {
+  opacity: 0;
+}
+
+/* Aurora Borealis effect - only in dark mode */
 body::before {
   content: "";
   position: fixed;
@@ -20,10 +52,10 @@ body::before {
   width: 100%;
   height: 100%;
   background: 
-    radial-gradient(ellipse at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 30%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 70%, rgba(34, 197, 94, 0.1) 0%, transparent 50%),
-    radial-gradient(ellipse at 30% 20%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+    radial-gradient(ellipse at 20% 50%, rgba(59, 130, 246, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 30%, rgba(139, 92, 246, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 70%, rgba(34, 197, 94, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 30% 20%, rgba(168, 85, 247, 0.15) 0%, transparent 50%);
   background-size: 150% 150%;
   animation: aurora 15s ease-in-out infinite;
   pointer-events: none;
@@ -40,7 +72,7 @@ button:disabled {
   @apply cursor-not-allowed opacity-50;
 }
 
-/* Starry background styles */
+/* Starry background styles - only visible in dark mode */
 .stars::before {
   content: "";
   position: absolute;
@@ -61,10 +93,11 @@ button:disabled {
   background-repeat: repeat;
   opacity: 0;
   animation: drift 120s linear infinite, twinkle1 6s ease-in-out infinite;
+  transition: opacity 0.5s ease;
 }
 
 .dark .stars::before {
-  opacity: 0.6;
+  opacity: 0.7;
 }
 
 .stars::after {
@@ -84,10 +117,11 @@ button:disabled {
   background-repeat: repeat;
   opacity: 0;
   animation: drift 180s linear infinite reverse, twinkle2 8s ease-in-out infinite;
+  transition: opacity 0.5s ease;
 }
 
 .dark .stars::after {
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 .bright-stars {
@@ -121,15 +155,21 @@ button:disabled {
 @keyframes drift {
   0% { transform: translate(0, 0); }
   100% { transform: translate(-200px, 100px); }
-}
-
 @keyframes twinkle1 {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 0.9; }
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
 }
 
 @keyframes twinkle2 {
-  0%, 100% { opacity: 0.7; }
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes darkGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+} 0%, 100% { opacity: 0.7; }
   50% { opacity: 0.3; }
 }
 

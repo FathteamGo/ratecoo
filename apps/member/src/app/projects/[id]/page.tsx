@@ -25,15 +25,15 @@ export default function ProjectDetailsPage({
         <div className="flex items-center gap-4">
           <a
             href="/dashboard"
-            className="p-2 hover:bg-white rounded-lg transition-colors"
+            className="p-2 hover:bg-white dark:hover:bg-slate-700 rounded-lg transition-colors"
           >
-            <ArrowLeft className="w-5 h-5 text-slate-600" />
+            <ArrowLeft className="w-5 h-5 text-slate-600 dark:text-slate-400" />
           </a>
           <div>
-            <h2 className="text-3xl font-bold text-slate-900">
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
               Project #{params.id}
             </h2>
-            <p className="text-slate-600 mt-1">Manage your reviews and widget</p>
+            <p className="text-slate-600 dark:text-slate-400 mt-1">Manage your reviews and widget</p>
           </div>
         </div>
         <div className="flex items-center gap-3">
@@ -41,7 +41,7 @@ export default function ProjectDetailsPage({
             href={`https://ratecoo.com/${params.id}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 border border-slate-300 text-slate-700 rounded-lg hover:bg-slate-50 transition-all"
+            className="flex items-center gap-2 px-4 py-2 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
           >
             <ExternalLink className="w-4 h-4" />
             View Public Page
@@ -51,34 +51,34 @@ export default function ProjectDetailsPage({
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="bg-white rounded-xl shadow-lg border border-slate-200 p-6">
+        <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg dark:shadow-2xl dark:shadow-slate-950/50 border border-slate-200 dark:border-slate-700 p-6">
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-              <Star className="w-5 h-5 text-blue-600 fill-blue-600" />
+            <div className="w-10 h-10 bg-blue-100 dark:bg-blue-950/50 rounded-lg flex items-center justify-center">
+              <Star className="w-5 h-5 text-blue-600 dark:text-blue-400 fill-blue-600 dark:fill-blue-400" />
             </div>
-            <p className="text-sm font-medium text-slate-600">Total Reviews</p>
+            <p className="text-sm font-medium text-slate-600 dark:text-slate-400">Total Reviews</p>
           </div>
-          <p className="text-3xl font-bold text-slate-900">0</p>
+          <p className="text-3xl font-bold text-slate-900 dark:text-white">0</p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-lg border border-slate-200 p-6">
+        <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg dark:shadow-2xl dark:shadow-slate-950/50 border border-slate-200 dark:border-slate-700 p-6">
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
-              <TrendingUp className="w-5 h-5 text-yellow-600" />
+            <div className="w-10 h-10 bg-yellow-100 dark:bg-yellow-950/50 rounded-lg flex items-center justify-center">
+              <TrendingUp className="w-5 h-5 text-yellow-600 dark:text-yellow-400" />
             </div>
-            <p className="text-sm font-medium text-slate-600">Avg Rating</p>
+            <p className="text-sm font-medium text-slate-600 dark:text-slate-400">Avg Rating</p>
           </div>
-          <p className="text-3xl font-bold text-slate-900">0.0</p>
+          <p className="text-3xl font-bold text-slate-900 dark:text-white">0.0</p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-lg border border-slate-200 p-6">
+        <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg dark:shadow-2xl dark:shadow-slate-950/50 border border-slate-200 dark:border-slate-700 p-6">
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-              <MessageSquare className="w-5 h-5 text-green-600" />
+            <div className="w-10 h-10 bg-green-100 dark:bg-green-950/50 rounded-lg flex items-center justify-center">
+              <MessageSquare className="w-5 h-5 text-green-600 dark:text-green-400" />
             </div>
-            <p className="text-sm font-medium text-slate-600">This Month</p>
+            <p className="text-sm font-medium text-slate-600 dark:text-slate-400">This Month</p>
           </div>
-          <p className="text-3xl font-bold text-slate-900">0</p>
+          <p className="text-3xl font-bold text-slate-900 dark:text-white">0</p>
         </div>
 
         <div className="bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl shadow-lg p-6 text-white">
@@ -96,28 +96,28 @@ export default function ProjectDetailsPage({
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Reviews List */}
         <div className="lg:col-span-2 space-y-6">
-          <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-6">
+          <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg dark:shadow-2xl dark:shadow-slate-950/50 border border-slate-200 dark:border-slate-700 p-6">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl font-bold text-slate-900">Recent Reviews</h3>
-              <button className="text-sm text-blue-600 hover:text-blue-700 font-medium">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white">Recent Reviews</h3>
+              <button className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium">
                 View All
               </button>
             </div>
             
             {/* Empty State */}
             <div className="text-center py-16">
-              <div className="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Star className="w-10 h-10 text-slate-400" />
+              <div className="w-20 h-20 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Star className="w-10 h-10 text-slate-400 dark:text-slate-500" />
               </div>
-              <h4 className="text-lg font-semibold text-slate-900 mb-2">
+              <h4 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">
                 No reviews yet
               </h4>
-              <p className="text-slate-600 mb-6 max-w-md mx-auto">
+              <p className="text-slate-600 dark:text-slate-400 mb-6 max-w-md mx-auto">
                 Start collecting reviews by embedding the widget on your website
               </p>
               <button
                 onClick={handleCopy}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 font-semibold"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl hover:shadow-lg hover:shadow-blue-500/50 dark:hover:shadow-blue-400/30 transition-all duration-300 font-semibold"
               >
                 <Code2 className="w-5 h-5" />
                 Copy Embed Code
@@ -129,21 +129,21 @@ export default function ProjectDetailsPage({
         {/* Sidebar */}
         <div className="space-y-6">
           {/* Embed Code */}
-          <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-6">
+          <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg dark:shadow-2xl dark:shadow-slate-950/50 border border-slate-200 dark:border-slate-700 p-6">
             <div className="flex items-center gap-2 mb-4">
-              <Code2 className="w-5 h-5 text-blue-600" />
-              <h3 className="text-lg font-bold text-slate-900">Embed Code</h3>
+              <Code2 className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white">Embed Code</h3>
             </div>
-            <p className="text-sm text-slate-600 mb-4">
+            <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
               Copy and paste this code into your website's HTML
             </p>
             <div className="relative">
-              <pre className="bg-slate-900 text-slate-100 p-4 rounded-xl text-xs overflow-x-auto">
+              <pre className="bg-slate-900 dark:bg-slate-950 text-slate-100 dark:text-slate-300 p-4 rounded-xl text-xs overflow-x-auto border border-transparent dark:border-slate-800">
                 <code>{embedCode}</code>
               </pre>
               <button
                 onClick={handleCopy}
-                className="absolute top-2 right-2 p-2 bg-slate-800 hover:bg-slate-700 rounded-lg transition-colors"
+                className="absolute top-2 right-2 p-2 bg-slate-800 dark:bg-slate-700 hover:bg-slate-700 dark:hover:bg-slate-600 rounded-lg transition-colors"
               >
                 {copied ? (
                   <Check className="w-4 h-4 text-green-400" />
@@ -153,7 +153,7 @@ export default function ProjectDetailsPage({
               </button>
             </div>
             {copied && (
-              <p className="text-xs text-green-600 mt-2 flex items-center gap-1">
+              <p className="text-xs text-green-600 dark:text-green-400 mt-2 flex items-center gap-1">
                 <Check className="w-3 h-3" />
                 Copied to clipboard!
               </p>
@@ -161,12 +161,12 @@ export default function ProjectDetailsPage({
           </div>
 
           {/* Widget Preview */}
-          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border border-blue-100 p-6">
+          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 rounded-2xl border border-blue-100 dark:border-blue-900/50 p-6">
             <div className="flex items-center gap-2 mb-4">
-              <Star className="w-5 h-5 text-blue-600" />
-              <h3 className="text-lg font-bold text-slate-900">Widget Preview</h3>
+              <Star className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white">Widget Preview</h3>
             </div>
-            <div className="bg-white rounded-xl p-4 border border-slate-200">
+            <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
                   {[1, 2, 3, 4, 5].map((star) => (
@@ -176,34 +176,34 @@ export default function ProjectDetailsPage({
                     />
                   ))}
                 </div>
-                <span className="text-sm font-semibold text-slate-900">5.0</span>
+                <span className="text-sm font-semibold text-slate-900 dark:text-white">5.0</span>
               </div>
-              <p className="text-xs text-slate-600 mb-3">
+              <p className="text-xs text-slate-600 dark:text-slate-400 mb-3">
                 Based on <span className="font-semibold">0 reviews</span>
               </p>
-              <button className="w-full py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">
+              <button className="w-full py-2 bg-blue-600 dark:bg-blue-500 text-white text-sm font-medium rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors">
                 Write a Review
               </button>
             </div>
-            <p className="text-xs text-slate-600 mt-4">
+            <p className="text-xs text-slate-600 dark:text-slate-400 mt-4">
               This is how your widget will appear on your website
             </p>
           </div>
 
           {/* Quick Actions */}
-          <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-6">
-            <h3 className="text-lg font-bold text-slate-900 mb-4">Quick Actions</h3>
+          <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg dark:shadow-2xl dark:shadow-slate-950/50 border border-slate-200 dark:border-slate-700 p-6">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">Quick Actions</h3>
             <div className="space-y-2">
-              <button className="w-full px-4 py-2 text-left text-sm font-medium text-slate-700 hover:bg-slate-50 rounded-lg transition-colors">
+              <button className="w-full px-4 py-2 text-left text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg transition-colors">
                 ⚙️ Widget Settings
               </button>
-              <button className="w-full px-4 py-2 text-left text-sm font-medium text-slate-700 hover:bg-slate-50 rounded-lg transition-colors">
+              <button className="w-full px-4 py-2 text-left text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg transition-colors">
                 🎨 Customize Design
               </button>
-              <button className="w-full px-4 py-2 text-left text-sm font-medium text-slate-700 hover:bg-slate-50 rounded-lg transition-colors">
+              <button className="w-full px-4 py-2 text-left text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg transition-colors">
                 📧 Email Templates
               </button>
-              <button className="w-full px-4 py-2 text-left text-sm font-medium text-red-600 hover:bg-red-50 rounded-lg transition-colors">
+              <button className="w-full px-4 py-2 text-left text-sm font-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-colors">
                 🗑️ Delete Project
               </button>
             </div>
