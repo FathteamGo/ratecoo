@@ -5,7 +5,7 @@ const isProduction = process.env.NODE_ENV === "production";
 export default defineConfig({
   schema: "./src/schema.ts",
   out: "./drizzle",
-  driver: isProduction ? "turso" : "better-sqlite",
+  driver: "turso",
   dbCredentials: isProduction
     ? {
         url: process.env.TURSO_DATABASE_URL || "",
@@ -13,5 +13,6 @@ export default defineConfig({
       }
     : {
         url: "file:./local.db",
+        authToken: undefined,
       },
 });
