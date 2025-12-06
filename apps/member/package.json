@@ -9,22 +9,25 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@libsql/client": "^0.5.6",
+    "@ratecoo/db": "workspace:*",
+    "@ratecoo/ui": "workspace:*",
+    "drizzle-orm": "^0.31.0",
+    "framer-motion": "^11.0.3",
+    "lucide-react": "^0.263.1",
     "next": "^16.0.0",
     "next-auth": "5.0.0-beta.30",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "framer-motion": "^11.0.3",
-    "lucide-react": "^0.263.1",
-    "@ratecoo/db": "workspace:*",
-    "@ratecoo/ui": "workspace:*",
-    "@libsql/client": "^0.5.6",
-    "drizzle-orm": "^0.31.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/node": "^20.10.5",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
+    "autoprefixer": "^10.4.22",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.17",
     "typescript": "^5.6.3"
   }
 }

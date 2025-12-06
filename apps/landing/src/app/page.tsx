@@ -1,27 +1,37 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle2, Zap, Lock, Smartphone } from "lucide-react";
+import { CheckCircle2, Zap, Lock, Smartphone, Star, TrendingUp, MessageSquare, BarChart3, Globe, Sparkles } from "lucide-react";
 
 export default function HomePage() {
   return (
     <>
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-white border-b border-slate-200">
+      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="text-2xl font-bold text-blue-600">RateCoo</div>
-          <div className="flex gap-6">
-            <a href="#pricing" className="text-slate-600 hover:text-slate-900">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
+              <Star className="w-5 h-5 text-white fill-white" />
+            </div>
+            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              RateCoo
+            </span>
+          </div>
+          <div className="hidden md:flex items-center gap-8">
+            <a href="#features" className="text-slate-600 hover:text-slate-900 transition-colors">
+              Features
+            </a>
+            <a href="#pricing" className="text-slate-600 hover:text-slate-900 transition-colors">
               Pricing
             </a>
-            <a href="/auth/signin" className="text-blue-600 hover:text-blue-700">
+            <a href="/auth/signin" className="text-slate-600 hover:text-slate-900 transition-colors">
               Login
             </a>
             <a
               href="/auth/register"
-              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+              className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 font-medium"
             >
-              Get Started
+              Get Started Free
             </a>
           </div>
         </div>
@@ -31,74 +41,172 @@ export default function HomePage() {
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="py-20 bg-gradient-to-b from-blue-50 to-white"
+        className="relative py-24 md:py-32 overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-slate-900 mb-6">
-            Collect 5-Star Trust in Seconds
-          </h1>
-          <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
-            Modern review & rating widget for your business. Get up and running
-            in minutes, not days.
-          </p>
-          <div className="flex gap-4 justify-center">
-            <a
-              href="/auth/register"
-              className="px-8 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-lg font-medium"
+        {/* Background Effects */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50" />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiM5M2MzZWUiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRoLTJWMTRoMnYyMHptMCAwdjJoLTJ2LTJoMnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-40" />
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full border border-blue-200/50 mb-8"
             >
-              Start Free
-            </a>
-            <a
-              href="#features"
-              className="px-8 py-3 border-2 border-blue-600 text-blue-600 rounded-md hover:bg-blue-50 text-lg font-medium"
+              <Sparkles className="w-4 h-4 text-blue-600" />
+              <span className="text-sm font-medium text-slate-700">Trusted by 10,000+ businesses worldwide</span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-5xl md:text-7xl font-extrabold text-slate-900 mb-6 leading-tight"
             >
-              Learn More
-            </a>
+              Collect 5-Star Reviews
+              <br />
+              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                in Seconds
+              </span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="text-xl md:text-2xl text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed"
+            >
+              The modern review & rating widget that turns visitors into advocates. 
+              Setup in 2 minutes, collect reviews forever.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            >
+              <a
+                href="/auth/register"
+                className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 text-lg font-semibold flex items-center gap-2"
+              >
+                Start Free Trial
+                <TrendingUp className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a
+                href="#features"
+                className="px-8 py-4 bg-white border-2 border-slate-200 text-slate-700 rounded-xl hover:border-blue-600 hover:text-blue-600 transition-all duration-300 text-lg font-semibold"
+              >
+                See How It Works
+              </a>
+            </motion.div>
+
+            {/* Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="grid grid-cols-3 gap-8 mt-16 max-w-2xl mx-auto"
+            >
+              {[
+                { label: "Active Users", value: "10K+" },
+                { label: "Reviews Collected", value: "500K+" },
+                { label: "Countries", value: "50+" },
+              ].map((stat, i) => (
+                <div key={i} className="text-center">
+                  <div className="text-3xl md:text-4xl font-bold text-slate-900 mb-1">{stat.value}</div>
+                  <div className="text-sm text-slate-600">{stat.label}</div>
+                </div>
+              ))}
+            </motion.div>
           </div>
         </div>
       </motion.section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 bg-white">
+      <section id="features" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-slate-900 mb-16">
-            Why Choose RateCoo?
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="text-center mb-20">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl font-bold text-slate-900 mb-4"
+            >
+              Everything You Need to Succeed
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-xl text-slate-600 max-w-2xl mx-auto"
+            >
+              Powerful features designed to help you collect and showcase reviews effortlessly
+            </motion.p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 icon: Zap,
                 title: "Lightning Fast",
-                desc: "Pre-optimized widget loads in milliseconds",
+                desc: "Widget loads in under 100ms with optimized code and CDN delivery",
+                gradient: "from-yellow-500 to-orange-500",
               },
               {
                 icon: Lock,
-                title: "Secure",
-                desc: "Enterprise-grade security for your data",
+                title: "Enterprise Security",
+                desc: "Bank-level encryption and compliance with GDPR, SOC 2, and ISO standards",
+                gradient: "from-green-500 to-emerald-500",
               },
               {
                 icon: Smartphone,
-                title: "Responsive",
-                desc: "Works perfectly on all devices",
+                title: "Mobile Optimized",
+                desc: "Perfect experience on any device with responsive design",
+                gradient: "from-purple-500 to-pink-500",
               },
               {
-                icon: CheckCircle2,
-                title: "Easy Setup",
-                desc: "Copy-paste embed code, done!",
+                icon: MessageSquare,
+                title: "Smart Notifications",
+                desc: "Get instant alerts via email, SMS, or WhatsApp when reviews arrive",
+                gradient: "from-blue-500 to-cyan-500",
+              },
+              {
+                icon: BarChart3,
+                title: "Advanced Analytics",
+                desc: "Track sentiment, trends, and ROI with beautiful dashboards",
+                gradient: "from-red-500 to-rose-500",
+              },
+              {
+                icon: Globe,
+                title: "Multi-Language",
+                desc: "Support 50+ languages with automatic translation",
+                gradient: "from-indigo-500 to-blue-500",
               },
             ].map((feature, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-slate-50 rounded-lg p-6"
+                className="group relative bg-white rounded-2xl p-8 border border-slate-200 hover:border-transparent hover:shadow-2xl transition-all duration-300"
               >
-                <feature.icon className="w-12 h-12 text-blue-600 mb-4" />
-                <h3 className="text-lg font-semibold text-slate-900 mb-2">
+                <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300" 
+                     style={{ backgroundImage: `linear-gradient(to bottom right, var(--tw-gradient-stops))` }} />
+                
+                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <feature.icon className="w-7 h-7 text-white" />
+                </div>
+                
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-slate-600">{feature.desc}</p>
+                <p className="text-slate-600 leading-relaxed">{feature.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -106,102 +214,232 @@ export default function HomePage() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-20 bg-slate-50">
+      <section id="pricing" className="py-24 bg-gradient-to-b from-slate-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-slate-900 mb-16">
-            Simple Pricing
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+          <div className="text-center mb-16">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl font-bold text-slate-900 mb-4"
+            >
+              Simple, Transparent Pricing
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-xl text-slate-600"
+            >
+              Start free, upgrade when you need more power
+            </motion.p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Free Tier */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              className="bg-white rounded-lg border border-slate-200 p-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl border-2 border-slate-200 p-8 hover:border-blue-300 transition-all duration-300"
             >
-              <h3 className="text-2xl font-bold text-slate-900 mb-2">Free</h3>
-              <p className="text-4xl font-bold text-slate-900 mb-6">
-                $0<span className="text-lg text-slate-600">/month</span>
-              </p>
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">Starter</h3>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-5xl font-bold text-slate-900">$0</span>
+                  <span className="text-lg text-slate-600">/month</span>
+                </div>
+                <p className="text-slate-600 mt-2">Perfect for getting started</p>
+              </div>
+
               <ul className="space-y-4 mb-8">
                 {[
-                  "1 Widget",
-                  "Powered by RateCoo",
+                  "1 Review Widget",
+                  "100 Reviews/month",
                   "Email Notifications",
                   "Basic Analytics",
+                  "Community Support",
+                  '"Powered by RateCoo" badge',
                 ].map((item, i) => (
-                  <li key={i} className="flex gap-2 items-center">
-                    <CheckCircle2 className="w-5 h-5 text-green-600" />
-                    <span className="text-slate-600">{item}</span>
+                  <li key={i} className="flex gap-3 items-start">
+                    <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">{item}</span>
                   </li>
                 ))}
               </ul>
+
               <a
                 href="/auth/register"
-                className="w-full px-4 py-2 border-2 border-blue-600 text-blue-600 rounded-md hover:bg-blue-50 font-medium text-center"
+                className="block w-full px-6 py-3 border-2 border-blue-600 text-blue-600 rounded-xl hover:bg-blue-50 font-semibold text-center transition-all duration-300"
               >
-                Get Started
+                Start Free
               </a>
             </motion.div>
 
             {/* Pro Tier */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              className="bg-blue-600 rounded-lg p-8 text-white ring-2 ring-blue-400 scale-105"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="relative bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl p-8 text-white shadow-2xl shadow-blue-500/50 scale-105"
             >
-              <h3 className="text-2xl font-bold mb-2">Pro</h3>
-              <p className="text-4xl font-bold mb-6">
-                $29<span className="text-lg">/month</span>
-              </p>
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                <span className="px-4 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-slate-900 rounded-full text-sm font-bold">
+                  MOST POPULAR
+                </span>
+              </div>
+
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold mb-2">Professional</h3>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-5xl font-bold">$29</span>
+                  <span className="text-lg opacity-90">/month</span>
+                </div>
+                <p className="opacity-90 mt-2">For growing businesses</p>
+              </div>
+
               <ul className="space-y-4 mb-8">
                 {[
-                  "5 Widgets",
-                  "White Label",
-                  "WhatsApp Notifications",
-                  "AI Auto-Reply",
-                  "Advanced Analytics",
+                  "Unlimited Widgets",
+                  "Unlimited Reviews",
+                  "White Label (No branding)",
+                  "WhatsApp & SMS Notifications",
+                  "AI-Powered Auto-Reply",
+                  "Advanced Analytics & Reports",
+                  "Custom Styling",
                   "API Access",
+                  "Priority Support",
                 ].map((item, i) => (
-                  <li key={i} className="flex gap-2 items-center">
-                    <CheckCircle2 className="w-5 h-5" />
+                  <li key={i} className="flex gap-3 items-start">
+                    <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
+
               <a
                 href="/auth/register"
-                className="w-full px-4 py-2 bg-white text-blue-600 rounded-md hover:bg-slate-100 font-medium text-center"
+                className="block w-full px-6 py-3 bg-white text-blue-600 rounded-xl hover:bg-slate-100 font-semibold text-center transition-all duration-300 shadow-lg"
               >
-                Upgrade Now
+                Start 14-Day Free Trial
               </a>
             </motion.div>
           </div>
+
+          {/* Enterprise */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="mt-8 text-center"
+          >
+            <div className="inline-block bg-slate-900 text-white rounded-xl px-8 py-6">
+              <h4 className="text-lg font-bold mb-2">Need Enterprise Features?</h4>
+              <p className="text-slate-300 mb-4">Custom solutions, SLA, dedicated support & more</p>
+              <a href="mailto:sales@ratecoo.com" className="text-blue-400 hover:text-blue-300 font-semibold">
+                Contact Sales →
+              </a>
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-blue-600 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6">
-            Ready to Get More Reviews?
-          </h2>
-          <p className="text-lg mb-8 opacity-90">
-            Join thousands of businesses already collecting reviews with RateCoo
-          </p>
-          <a
-            href="/auth/register"
-            className="px-8 py-3 bg-white text-blue-600 rounded-md hover:bg-slate-100 text-lg font-medium inline-block"
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600" />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0aC0yVjE0aDJ2MjB6bTAgMHYyaC0ydi0yaDJ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-30" />
+        
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
           >
-            Start Free Today
-          </a>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+              Ready to Transform Your
+              <br />
+              Customer Reviews?
+            </h2>
+            <p className="text-xl md:text-2xl mb-10 opacity-90 leading-relaxed">
+              Join 10,000+ businesses already building trust with RateCoo
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a
+                href="/auth/register"
+                className="group px-10 py-4 bg-white text-blue-600 rounded-xl hover:bg-slate-100 text-lg font-bold transition-all duration-300 shadow-2xl hover:shadow-white/50 flex items-center gap-2"
+              >
+                Start Free Today
+                <Star className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+              </a>
+              <a
+                href="#features"
+                className="px-10 py-4 border-2 border-white text-white rounded-xl hover:bg-white/10 text-lg font-bold transition-all duration-300"
+              >
+                Learn More
+              </a>
+            </div>
+
+            <p className="mt-8 text-sm opacity-75">
+              No credit card required • 14-day free trial • Cancel anytime
+            </p>
+          </motion.div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-slate-400 py-12">
+      <footer className="bg-slate-900 text-slate-400 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <p>&copy; 2026 RateCoo. All rights reserved.</p>
+          <div className="grid md:grid-cols-4 gap-12 mb-12">
+            {/* Brand */}
+            <div className="md:col-span-2">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
+                  <Star className="w-5 h-5 text-white fill-white" />
+                </div>
+                <span className="text-2xl font-bold text-white">RateCoo</span>
+              </div>
+              <p className="text-slate-400 max-w-md leading-relaxed">
+                The modern review widget that helps businesses collect authentic feedback 
+                and build trust with their customers.
+              </p>
+            </div>
+
+            {/* Product */}
+            <div>
+              <h4 className="text-white font-semibold mb-4">Product</h4>
+              <ul className="space-y-3">
+                <li><a href="#features" className="hover:text-white transition-colors">Features</a></li>
+                <li><a href="#pricing" className="hover:text-white transition-colors">Pricing</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">API</a></li>
+              </ul>
+            </div>
+
+            {/* Company */}
+            <div>
+              <h4 className="text-white font-semibold mb-4">Company</h4>
+              <ul className="space-y-3">
+                <li><a href="#" className="hover:text-white transition-colors">About</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-slate-800 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-sm">© 2025 RateCoo. All rights reserved.</p>
+              <div className="flex gap-6 text-sm">
+                <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+                <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
