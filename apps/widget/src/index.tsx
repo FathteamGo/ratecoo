@@ -178,9 +178,9 @@ function ReviewWidget({ projectId }: { projectId: string }) {
         background: colors.background,
         borderRadius: "12px",
         boxShadow: isDark
-          ? "0 25px 60px rgba(0,0,0,0.45)"
-          : "0 15px 35px rgba(15, 23, 42, 0.12)",
-        padding: "16px",
+          ? "0 25px 60px rgba(0,0,0,0.45), 0 0 60px rgba(255, 255, 255, 0.2)"
+          : "0 15px 35px rgba(15, 23, 42, 0.12), 0 0 60px rgba(255, 255, 255, 0.5)",
+        padding: "0",
       },
     },
     submitted
@@ -203,8 +203,8 @@ function ReviewWidget({ projectId }: { projectId: string }) {
               borderRadius: "12px",
               border: `1px solid ${colors.border}`,
               boxShadow: isDark
-                ? "0 20px 40px rgba(0,0,0,0.35)"
-                : "0 12px 30px rgba(15, 23, 42, 0.08)",
+                ? "0 20px 40px rgba(0,0,0,0.35), 0 0 40px rgba(255, 255, 255, 0.15)"
+                : "0 12px 30px rgba(15, 23, 42, 0.08), 0 0 40px rgba(255, 255, 255, 0.4)",
             },
           },
           h(

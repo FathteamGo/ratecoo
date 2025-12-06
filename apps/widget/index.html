@@ -132,24 +132,43 @@
       color: #fff;
       position: relative;
       z-index: 1;
-      text-shadow: 0 0 30px rgba(255,255,255,0.6), 0 0 60px rgba(100,150,255,0.4);
       font-size: 32px;
       margin-bottom: 40px;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    h1 .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+    }
+
+    h1 .logo-text {
+      background: linear-gradient(to right, #3b82f6, #6366f1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 800;
     }
     
     .widget-container {
-      background: rgba(255, 255, 255, 0.98);
+      background: transparent;
       border-radius: 16px;
-      box-shadow: 
-        0 8px 32px rgba(0,0,0,0.4),
-        0 0 80px rgba(100,150,255,0.2),
-        inset 0 1px 1px rgba(255,255,255,0.5);
+      box-shadow: none;
       padding: 32px;
       position: relative;
       z-index: 1;
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: none;
+      border: none;
     }
   </style>
 </head>
@@ -164,7 +183,14 @@
     <div class="bright-star"></div>
   </div>
   
-  <h1>⭐ RateCoo Widget</h1>
+  <h1>
+    <div class="logo-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <span class="logo-text">RateCoo</span>
+  </h1>
   
   <div class="widget-container">
     <div id="ratecoo-widget"></div>

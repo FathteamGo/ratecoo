@@ -26,11 +26,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-gradient-to-br from-slate-900 to-slate-800 dark:from-slate-50 dark:to-slate-100 antialiased relative">
+      <body className="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 antialiased relative">
         <StarryBackground />
         <div className="flex h-screen relative z-10">
           {/* Sidebar */}
-          <aside className="w-72 bg-slate-900 dark:bg-white border-r border-slate-700 dark:border-slate-200 shadow-lg overflow-y-auto">
+          <aside className="w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-700 shadow-lg overflow-y-auto">
             <div className="p-6 border-b border-slate-700 dark:border-slate-200 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-gradient-to-br from-slate-900 to-slate-700 rounded-xl flex items-center justify-center shadow-lg">
