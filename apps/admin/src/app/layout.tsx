@@ -13,34 +13,34 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               try {
-                const theme = localStorage.getItem('theme') || 'dark';
+                const theme = localStorage.getItem('theme') || 'light';
                 document.documentElement.classList.toggle('dark', theme === 'dark');
               } catch (e) {}
             `,
           }}
         />
       </head>
-      <body className="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 antialiased relative">
+      <body className="bg-gradient-to-br from-slate-900 to-slate-800 dark:from-slate-50 dark:to-slate-100 antialiased relative">
         <StarryBackground />
         <div className="flex h-screen relative z-10">
           {/* Sidebar */}
-          <aside className="w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-700 shadow-lg overflow-y-auto">
-            <div className="p-6 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between">
+          <aside className="w-72 bg-slate-900 dark:bg-white border-r border-slate-700 dark:border-slate-200 shadow-lg overflow-y-auto">
+            <div className="p-6 border-b border-slate-700 dark:border-slate-200 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-gradient-to-br from-slate-900 to-slate-700 rounded-xl flex items-center justify-center shadow-lg">
                   <Star className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-slate-900 dark:text-slate-100">
+                  <h1 className="text-xl font-bold text-slate-100 dark:text-slate-900">
                     RateCoo
                   </h1> 
-                  <p className="text-xs text-slate-500 dark:text-slate-400">Admin Panel</p>
+                  <p className="text-xs text-slate-400 dark:text-slate-500">Admin Panel</p>
                 </div>
               </div>
               <ThemeToggle />
@@ -56,32 +56,32 @@ export default function RootLayout({
               </a>
               <a
                 href="/admin/users"
-                className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all duration-300"
+                className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-300 dark:text-slate-700 hover:bg-slate-800 dark:hover:bg-slate-100 rounded-xl transition-all duration-300"
               >
                 <Users className="w-5 h-5" />
                 Users
               </a>
               <a
                 href="/admin/projects"
-                className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all duration-300"
+                className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-300 dark:text-slate-700 hover:bg-slate-800 dark:hover:bg-slate-100 rounded-xl transition-all duration-300"
               >
                 <FolderKanban className="w-5 h-5" />
                 Projects
               </a>
               <a
                 href="/admin/reviews"
-                className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all duration-300"
+                className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-300 dark:text-slate-700 hover:bg-slate-800 dark:hover:bg-slate-100 rounded-xl transition-all duration-300"
               >
                 <MessageSquare className="w-5 h-5" />
                 Reviews
               </a>
             </nav>
 
-            <div className="border-t border-slate-200 dark:border-slate-700 p-4 mt-4">
-              <p className="text-xs font-semibold text-slate-600 dark:text-slate-400 mb-2 px-4">Tools</p>
+            <div className="border-t border-slate-700 dark:border-slate-200 p-4 mt-4">
+              <p className="text-xs font-semibold text-slate-400 dark:text-slate-600 mb-2 px-4">Tools</p>
               <a
                 href="/settings"
-                className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all duration-300"
+                className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-300 dark:text-slate-700 hover:bg-slate-800 dark:hover:bg-slate-100 rounded-xl transition-all duration-300"
               >
                 <Settings className="w-5 h-5" />
                 Settings
@@ -89,17 +89,17 @@ export default function RootLayout({
             </div>
 
             {/* Admin Profile at Bottom */}
-            <div className="absolute bottom-0 w-72 p-4 border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900">
-              <div className="flex items-center gap-3 px-4 py-3 bg-slate-50 dark:bg-slate-800 rounded-xl">
+            <div className="absolute bottom-0 w-72 p-4 border-t border-slate-700 dark:border-slate-200 bg-slate-900 dark:bg-white">
+              <div className="flex items-center gap-3 px-4 py-3 bg-slate-800 dark:bg-slate-50 rounded-xl">
                 <div className="w-10 h-10 bg-gradient-to-br from-slate-300 to-slate-400 rounded-full flex items-center justify-center flex-shrink-0">
                   <Shield className="w-5 h-5 text-white" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-semibold text-slate-900 dark:text-slate-100 truncate">Admin User</p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 truncate">Super Admin</p>
+                  <p className="text-sm font-semibold text-slate-100 dark:text-slate-900 truncate">Admin User</p>
+                  <p className="text-xs text-slate-400 dark:text-slate-500 truncate">Super Admin</p>
                 </div>
-                <button className="p-2 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg transition-colors flex-shrink-0">
-                  <LogOut className="w-4 h-4 text-slate-600" />
+                <button className="p-2 hover:bg-slate-700 dark:hover:bg-slate-200 rounded-lg transition-colors flex-shrink-0">
+                  <LogOut className="w-4 h-4 text-slate-400 dark:text-slate-600" />
                 </button>
               </div>
             </div>
@@ -108,19 +108,19 @@ export default function RootLayout({
           {/* Main Content */}
           <main className="flex-1 overflow-auto">
             {/* Top Bar */}
-            <header className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 px-8 py-4 sticky top-0 z-10 shadow-sm">
+            <header className="bg-slate-900 dark:bg-white border-b border-slate-700 dark:border-slate-200 px-8 py-4 sticky top-0 z-10 shadow-sm">
               <div className="flex items-center justify-between">
                 <div>
-                  <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Platform Management</h2>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">Monitor and manage RateCoo platform</p>
+                  <h2 className="text-2xl font-bold text-slate-100 dark:text-slate-900">Platform Management</h2>
+                  <p className="text-sm text-slate-400 dark:text-slate-600">Monitor and manage RateCoo platform</p>
                 </div>
                 <div className="flex items-center gap-4">
-                  <button className="relative p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
-                    <Bell className="w-5 h-5 text-slate-600" />
+                  <button className="relative p-2 hover:bg-slate-800 dark:hover:bg-slate-100 rounded-lg transition-colors">
+                    <Bell className="w-5 h-5 text-slate-400 dark:text-slate-600" />
                     <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
                   </button>
-                  <button className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
-                    <AlertCircle className="w-5 h-5 text-slate-600" />
+                  <button className="p-2 hover:bg-slate-800 dark:hover:bg-slate-100 rounded-lg transition-colors">
+                    <AlertCircle className="w-5 h-5 text-slate-400 dark:text-slate-600" />
                   </button>
                 </div>
               </div>
@@ -135,3 +135,4 @@ export default function RootLayout({
     </html>
   );
 }
+

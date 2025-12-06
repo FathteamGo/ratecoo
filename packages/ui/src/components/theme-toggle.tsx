@@ -8,8 +8,8 @@ export function ThemeToggle() {
 
   useEffect(() => {
     const theme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const shouldBeDark = theme === 'dark' || (!theme && prefersDark);
+    // Default to light mode if no theme is set
+    const shouldBeDark = theme === 'dark';
     
     setIsDark(shouldBeDark);
     document.documentElement.classList.toggle('dark', shouldBeDark);
@@ -25,13 +25,13 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2.5 rounded-lg bg-slate-100/80 dark:bg-slate-700/80 hover:bg-slate-200 dark:hover:bg-slate-600 backdrop-blur transition-all duration-300 border border-slate-300/50 dark:border-slate-500/50 shadow-lg"
+      className="p-2.5 rounded-full hover:bg-slate-200/50 dark:hover:bg-slate-700/50 transition-all duration-300 group"
       aria-label="Toggle theme"
     >
       {isDark ? (
-        <Sun className="w-5 h-5 text-yellow-400" />
+        <Sun className="w-5 h-5 text-yellow-500 dark:text-yellow-400 group-hover:text-yellow-600 dark:group-hover:text-yellow-300 transition-colors drop-shadow-lg" />
       ) : (
-        <Moon className="w-5 h-5 text-slate-700" />
+        <Moon className="w-5 h-5 text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-slate-100 transition-colors drop-shadow-lg" />
       )}
     </button>
   );

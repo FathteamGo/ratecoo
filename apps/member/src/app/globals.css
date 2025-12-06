@@ -12,21 +12,21 @@ body {
   position: relative;
 }
 
-/* Light mode: Deep rich gradient with animation */
+/* Light mode: Clean light gradient */
 body {
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 25%, #1e1b4b 50%, #0f172a 75%, #1e293b 100%);
-  background-size: 400% 400%;
-  animation: darkGradient 20s ease infinite;
-}
-
-/* Dark mode: Clean light gradient */
-.dark body {
   background: linear-gradient(135deg, #fefefe 0%, #f0f4ff 50%, #fafbff 100%);
   background-size: 100% 100%;
   animation: none;
 }
 
-/* Light mode: No pattern overlay (uses aurora instead) */
+/* Dark mode: Deep rich gradient with animation */
+.dark body {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 25%, #1e1b4b 50%, #0f172a 75%, #1e293b 100%);
+  background-size: 400% 400%;
+  animation: darkGradient 20s ease infinite;
+}
+
+/* Light mode: Subtle light pattern overlay */
 body::after {
   content: "";
   position: fixed;
@@ -34,20 +34,20 @@ body::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: none;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0;
-}
-
-/* Dark mode: Subtle light pattern overlay */
-.dark body::after {
   background-image: radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.04) 0%, transparent 50%),
                     radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
   opacity: 1;
 }
 
-/* Aurora Borealis effect - active in light mode */
+/* Dark mode: No pattern overlay (uses aurora instead) */
+.dark body::after {
+  background-image: none;
+  opacity: 0;
+}
+
+/* Aurora Borealis effect - active in DARK mode */
 body::before {
   content: "";
   position: fixed;
