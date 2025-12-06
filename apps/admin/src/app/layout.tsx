@@ -30,20 +30,19 @@ export default function RootLayout({
         <StarryBackground />
         <div className="flex h-screen relative z-10">
           {/* Sidebar */}
-          <aside className="w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-700 shadow-lg overflow-y-auto">
-            <div className="p-6 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between">
+          <aside className="w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-700 shadow-lg overflow-y-auto flex flex-col">
+            <div className="p-4 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between h-20">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
-                  <Star className="w-6 h-6 text-white" />
+                <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+                  <Star className="w-6 h-6 text-white fill-white" />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-slate-900 dark:text-white">
+                  <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                     RateCoo
-                  </h1> 
+                  </h1>
                   <p className="text-xs text-slate-600 dark:text-slate-400">Admin Panel</p>
                 </div>
               </div>
-              <ThemeToggle />
             </div>
 
             <nav className="p-4 space-y-2">
@@ -108,13 +107,14 @@ export default function RootLayout({
           {/* Main Content */}
           <main className="flex-1 overflow-auto">
             {/* Top Bar */}
-            <header className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 px-8 py-4 sticky top-0 z-10 shadow-sm">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Platform Management</h2>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">Monitor and manage RateCoo platform</p>
+            <header className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 px-8 h-20 sticky top-0 z-10 shadow-sm flex items-center">
+              <div className="flex items-center justify-between gap-8 w-full">
+                <div className="flex-1">
+                  <h2 className="text-2xl font-bold text-slate-900 dark:text-white leading-tight">Platform Management</h2>
+                  <p className="text-sm text-slate-600 dark:text-slate-400 mt-0.5">Monitor and manage RateCoo platform</p>
                 </div>
                 <div className="flex items-center gap-4">
+                  <ThemeToggle />
                   <button className="relative p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
                     <Bell className="w-5 h-5 text-slate-600 dark:text-slate-400" />
                     <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
