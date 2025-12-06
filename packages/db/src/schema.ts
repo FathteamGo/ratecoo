@@ -1,4 +1,4 @@
-import { text, integer, boolean, json, sqliteTable } from "drizzle-orm/sqlite-core";
+import { text, integer, sqliteTable } from "drizzle-orm/sqlite-core";
 import { sql } from "drizzle-orm";
 
 function generateId(): string {
@@ -11,7 +11,7 @@ export const users = sqliteTable("users", {
   email: text("email").unique().notNull(),
   image: text("image"),
   password: text("password"),
-  tier: text("tier").$type<"free" | "pro">().notNull().default("free"),
+  tier: text("tier", { enum: ["free", "pro"] }).notNull().default("free"),
   created_at: text("created_at")
     .$defaultFn(() => new Date().toISOString())
     .notNull(),
@@ -27,7 +27,7 @@ export const projects = sqliteTable("projects", {
     .references(() => users.id, { onDelete: "cascade" }),
   name: text("name").notNull(),
   slug: text("slug").notNull().unique(),
-  settings: json("settings").$type<{
+  settings: text("settings", { mode: "json" }).$type<{
     color: string;
     show_branding: boolean;
     auto_approve_status: "pending" | "approved";
@@ -47,14 +47,15 @@ export const reviews = sqliteTable("reviews", {
     .notNull()
     .references(() => projects.id, { onDelete: "cascade" }),
   customer_name: text("customer_name").notNull(),
+  customer_email: text("customer_email"),
+  customer_whatsapp: text("customer_whatsapp"),
   rating: integer("rating").notNull(),
   comment: text("comment"),
-  source: text("source").$type<"widget" | "import">().notNull().default("widget"),
-  status: text("status")
-    .$type<"pending" | "approved" | "rejected">()
+  source: text("source", { enum: ["widget", "import"] }).notNull().default("widget"),
+  status: text("status", { enum: ["pending", "approved", "rejected"] })
     .notNull()
     .default("pending"),
-  is_featured: boolean("is_featured").notNull().default(false),
+  is_featured: integer("is_featured", { mode: "boolean" }).notNull().default(false),
   created_at: text("created_at")
     .$defaultFn(() => new Date().toISOString())
     .notNull(),

@@ -15,12 +15,32 @@ function ReviewWidget({ projectId }: { projectId: string }) {
   const [config, setConfig] = useState<WidgetConfig | null>(null);
   const [loading, setLoading] = useState(true);
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [whatsapp, setWhatsapp] = useState("");
   const [rating, setRating] = useState(5);
   const [comment, setComment] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
+    // For development, use mock data if API not available
+    const isDev = import.meta.env.DEV;
+    
+    if (isDev) {
+      // Mock config for development
+      setConfig({
+        id: projectId,
+        name: "Demo Project",
+        settings: {
+          color: "#6366f1",
+          show_branding: true,
+          auto_approve_status: "pending",
+        },
+      });
+      setLoading(false);
+      return;
+    }
+
     // Fetch widget config
     fetch(`${window.location.origin}/api/custom/widget/${projectId}`)
       .then((res) => res.json())
@@ -38,6 +58,26 @@ function ReviewWidget({ projectId }: { projectId: string }) {
     e.preventDefault();
     setSubmitting(true);
 
+    // For development, just simulate success
+    const isDev = import.meta.env.DEV;
+    
+    if (isDev) {
+      console.log("Dev mode - Review submitted:", { name, email, whatsapp, rating, comment });
+      setTimeout(() => {
+        setSubmitted(true);
+        setTimeout(() => {
+          setName("");
+          setEmail("");
+          setWhatsapp("");
+          setRating(5);
+          setComment("");
+          setSubmitted(false);
+        }, 2000);
+        setSubmitting(false);
+      }, 500);
+      return;
+    }
+
     try {
       const res = await fetch(
         `${window.location.origin}/api/reviews`,
@@ -47,6 +87,8 @@ function ReviewWidget({ projectId }: { projectId: string }) {
           body: JSON.stringify({
             project_id: projectId,
             customer_name: name,
+            customer_email: email,
+            customer_whatsapp: whatsapp,
             rating,
             comment,
             source: "widget",
@@ -58,6 +100,8 @@ function ReviewWidget({ projectId }: { projectId: string }) {
         setSubmitted(true);
         setTimeout(() => {
           setName("");
+          setEmail("");
+          setWhatsapp("");
           setRating(5);
           setComment("");
           setSubmitted(false);
@@ -108,6 +152,46 @@ function ReviewWidget({ projectId }: { projectId: string }) {
               value: name,
               onInput: (e) => setName((e.target as HTMLInputElement).value),
               placeholder: "John Doe",
+              required: true,
+              style: {
+                width: "100%",
+                padding: "8px",
+                marginTop: "4px",
+                border: "1px solid #ddd",
+                borderRadius: "4px",
+                boxSizing: "border-box",
+              },
+            })
+          ),
+          h(
+            "div",
+            { style: { marginBottom: "16px" } },
+            h("label", null, "Email"),
+            h("input", {
+              type: "email",
+              value: email,
+              onInput: (e) => setEmail((e.target as HTMLInputElement).value),
+              placeholder: "john@example.com",
+              required: true,
+              style: {
+                width: "100%",
+                padding: "8px",
+                marginTop: "4px",
+                border: "1px solid #ddd",
+                borderRadius: "4px",
+                boxSizing: "border-box",
+              },
+            })
+          ),
+          h(
+            "div",
+            { style: { marginBottom: "16px" } },
+            h("label", null, "WhatsApp Number"),
+            h("input", {
+              type: "tel",
+              value: whatsapp,
+              onInput: (e) => setWhatsapp((e.target as HTMLInputElement).value),
+              placeholder: "+62812345678",
               required: true,
               style: {
                 width: "100%",

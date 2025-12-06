@@ -7,6 +7,8 @@ export const CreateProjectSchema = z.object({
 
 export const CreateReviewSchema = z.object({
   customer_name: z.string().min(1).max(100),
+  customer_email: z.string().email().optional(),
+  customer_whatsapp: z.string().min(1).max(20).optional(),
   rating: z.number().min(1).max(5),
   comment: z.string().max(1000).optional(),
 });
