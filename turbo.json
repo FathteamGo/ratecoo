@@ -1,6 +1,6 @@
 {
-  "extends": ["//"],
   "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
   "globalDependencies": ["**/.env.local"],
   "tasks": {
     "dev": {

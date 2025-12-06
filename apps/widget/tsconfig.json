@@ -1,5 +1,5 @@
 {
-  "extends": "@ratecoo/typescript-config/react-library.json",
+  "extends": "../../packages/typescript-config/react-library.json",
   "compilerOptions": {
     "baseUrl": ".",
     "jsxImportSource": "preact"

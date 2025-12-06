@@ -34,3 +34,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+/.turbo
+/apps/admin/.next
+/apps/admin/node_modules
+/apps/landing/.next
+/apps/landing/node_modules
+/apps/member/node_modules
+/apps/widget/node_modules
+/packages/db/node_modules
+/packages/ui/node_modules
+/apps/member/.next
