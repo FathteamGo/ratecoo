@@ -1,67 +1,285 @@
+"use client";
+
 import Link from "next/link";
+import { BarChart3, Users, FolderKanban, MessageSquare, TrendingUp, Activity, Settings, Shield, ArrowRight } from "lucide-react";
 
-export default function Page() {
+export default function AdminPage() {
   return (
-    <div className="p-8">
-      <h1 className="text-3xl font-bold mb-4">RateCoo Admin Panel</h1>
-      <p className="text-gray-600 mb-8">
-        Welcome to the admin panel. Manage users, projects, and reviews here.
-      </p>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white rounded-lg shadow p-6">
-          <h2 className="text-lg font-semibold mb-2">Users</h2>
-          <p className="text-gray-600 mb-4">Manage user accounts and tiers</p>
-          <Link
-            href="/admin/users"
-            className="text-blue-600 hover:text-blue-700 font-medium"
-          >
-            View Users →
-          </Link>
+    <div className="space-y-8">
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-4xl font-bold text-slate-900">Admin Dashboard</h1>
+          <p className="text-slate-600 mt-2">
+            Manage users, projects, and reviews across the platform
+          </p>
         </div>
-
-        <div className="bg-white rounded-lg shadow p-6">
-          <h2 className="text-lg font-semibold mb-2">Projects</h2>
-          <p className="text-gray-600 mb-4">View all widget projects</p>
-          <Link
-            href="/admin/projects"
-            className="text-blue-600 hover:text-blue-700 font-medium"
+        <div className="flex items-center gap-3">
+          <a
+            href="/settings"
+            className="flex items-center gap-2 px-4 py-2 border border-slate-300 text-slate-700 rounded-lg hover:bg-slate-50 transition-all"
           >
-            View Projects →
-          </Link>
-        </div>
-
-        <div className="bg-white rounded-lg shadow p-6">
-          <h2 className="text-lg font-semibold mb-2">Reviews</h2>
-          <p className="text-gray-600 mb-4">Approve and manage reviews</p>
-          <Link
-            href="/admin/reviews"
-            className="text-blue-600 hover:text-blue-700 font-medium"
-          >
-            View Reviews →
-          </Link>
+            <Settings className="w-5 h-5" />
+            Settings
+          </a>
         </div>
       </div>
 
-      <div className="mt-12 p-6 bg-blue-50 rounded-lg">
-        <h2 className="text-lg font-semibold mb-2">API Documentation</h2>
-        <p className="text-gray-600 mb-4">
-          Use these endpoints to integrate with RateCoo:
-        </p>
-        <ul className="space-y-2 text-sm font-mono">
-          <li className="text-gray-700">
-            <span className="bg-gray-200 px-2 py-1 rounded">
-              GET
-            </span>{" "}
-            /api/custom/widget/:projectId
-          </li>
-          <li className="text-gray-700">
-            <span className="bg-gray-200 px-2 py-1 rounded">
-              POST
-            </span>{" "}
-            /api/reviews
-          </li>
-        </ul>
+      {/* Key Metrics */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Total Users */}
+        <div className="group relative bg-white rounded-2xl shadow-lg border border-slate-200 p-6 hover:shadow-xl transition-all duration-300 overflow-hidden">
+          <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
+          <div className="relative">
+            <div className="flex items-center justify-between mb-4">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+                <Users className="w-6 h-6 text-white" />
+              </div>
+              <span className="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded-full">
+                +12%
+              </span>
+            </div>
+            <p className="text-sm font-medium text-slate-600 mb-1">Total Users</p>
+            <p className="text-3xl font-bold text-slate-900">1,234</p>
+            <p className="text-xs text-slate-500 mt-2">Active this month</p>
+          </div>
+        </div>
+
+        {/* Total Projects */}
+        <div className="group relative bg-white rounded-2xl shadow-lg border border-slate-200 p-6 hover:shadow-xl transition-all duration-300 overflow-hidden">
+          <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
+          <div className="relative">
+            <div className="flex items-center justify-between mb-4">
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center shadow-lg">
+                <FolderKanban className="w-6 h-6 text-white" />
+              </div>
+              <span className="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded-full">
+                +8%
+              </span>
+            </div>
+            <p className="text-sm font-medium text-slate-600 mb-1">Total Projects</p>
+            <p className="text-3xl font-bold text-slate-900">567</p>
+            <p className="text-xs text-slate-500 mt-2">Across all users</p>
+          </div>
+        </div>
+
+        {/* Total Reviews */}
+        <div className="group relative bg-white rounded-2xl shadow-lg border border-slate-200 p-6 hover:shadow-xl transition-all duration-300 overflow-hidden">
+          <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-yellow-500/10 to-orange-500/10 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
+          <div className="relative">
+            <div className="flex items-center justify-between mb-4">
+              <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
+                <MessageSquare className="w-6 h-6 text-white" />
+              </div>
+              <span className="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded-full">
+                +24%
+              </span>
+            </div>
+            <p className="text-sm font-medium text-slate-600 mb-1">Total Reviews</p>
+            <p className="text-3xl font-bold text-slate-900">45.2K</p>
+            <p className="text-xs text-slate-500 mt-2">This month</p>
+          </div>
+        </div>
+
+        {/* Avg Rating */}
+        <div className="group relative bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 overflow-hidden text-white">
+          <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
+          <div className="relative">
+            <div className="flex items-center justify-between mb-4">
+              <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                <TrendingUp className="w-6 h-6" />
+              </div>
+              <ArrowRight className="w-5 h-5 opacity-70" />
+            </div>
+            <p className="text-sm font-medium opacity-90 mb-1">Platform Avg</p>
+            <p className="text-3xl font-bold">4.8★</p>
+            <p className="text-xs opacity-75 mt-2">Out of 5.0</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Management Sections */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Users Section */}
+        <Link href="/admin/users" className="group">
+          <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-8 hover:shadow-xl hover:border-blue-300 transition-all duration-300 h-full">
+            <div className="flex items-center justify-between mb-6">
+              <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <Users className="w-7 h-7 text-blue-600" />
+              </div>
+              <ArrowRight className="w-5 h-5 text-slate-400 group-hover:translate-x-1 transition-transform" />
+            </div>
+            <h3 className="text-2xl font-bold text-slate-900 mb-2">Users</h3>
+            <p className="text-slate-600 mb-6">
+              Manage user accounts, tiers, and permissions. View user activity and analytics.
+            </p>
+            <div className="space-y-2 text-sm text-slate-600">
+              <div className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
+                <span>1,234 active users</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
+                <span>156 new this month</span>
+              </div>
+            </div>
+          </div>
+        </Link>
+
+        {/* Projects Section */}
+        <Link href="/admin/projects" className="group">
+          <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-8 hover:shadow-xl hover:border-purple-300 transition-all duration-300 h-full">
+            <div className="flex items-center justify-between mb-6">
+              <div className="w-14 h-14 bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <FolderKanban className="w-7 h-7 text-purple-600" />
+              </div>
+              <ArrowRight className="w-5 h-5 text-slate-400 group-hover:translate-x-1 transition-transform" />
+            </div>
+            <h3 className="text-2xl font-bold text-slate-900 mb-2">Projects</h3>
+            <p className="text-slate-600 mb-6">
+              Monitor all projects, view widget performance, and manage project settings.
+            </p>
+            <div className="space-y-2 text-sm text-slate-600">
+              <div className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 bg-purple-600 rounded-full"></div>
+                <span>567 total projects</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 bg-purple-600 rounded-full"></div>
+                <span>89 inactive (30+ days)</span>
+              </div>
+            </div>
+          </div>
+        </Link>
+
+        {/* Reviews Section */}
+        <Link href="/admin/reviews" className="group">
+          <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-8 hover:shadow-xl hover:border-orange-300 transition-all duration-300 h-full">
+            <div className="flex items-center justify-between mb-6">
+              <div className="w-14 h-14 bg-gradient-to-br from-yellow-100 to-orange-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <MessageSquare className="w-7 h-7 text-orange-600" />
+              </div>
+              <ArrowRight className="w-5 h-5 text-slate-400 group-hover:translate-x-1 transition-transform" />
+            </div>
+            <h3 className="text-2xl font-bold text-slate-900 mb-2">Reviews</h3>
+            <p className="text-slate-600 mb-6">
+              Approve pending reviews, moderate content, and manage review settings.
+            </p>
+            <div className="space-y-2 text-sm text-slate-600">
+              <div className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 bg-orange-600 rounded-full"></div>
+                <span>45.2K total reviews</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 bg-orange-600 rounded-full"></div>
+                <span>23 pending approval</span>
+              </div>
+            </div>
+          </div>
+        </Link>
+      </div>
+
+      {/* Activity & System Stats */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Recent Activity */}
+        <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-6">
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-xl font-bold text-slate-900 flex items-center gap-2">
+              <Activity className="w-5 h-5 text-blue-600" />
+              Recent Activity
+            </h3>
+            <button className="text-sm text-blue-600 hover:text-blue-700 font-medium">
+              View All
+            </button>
+          </div>
+
+          <div className="space-y-4">
+            {[
+              { label: "New user registered", time: "2 minutes ago", icon: "👤" },
+              { label: "Project created", time: "15 minutes ago", icon: "📁" },
+              { label: "Review submitted", time: "32 minutes ago", icon: "⭐" },
+              { label: "User upgraded to Pro", time: "1 hour ago", icon: "✨" },
+            ].map((item, i) => (
+              <div key={i} className="flex items-center gap-4 p-3 hover:bg-slate-50 rounded-lg transition-colors">
+                <div className="text-2xl">{item.icon}</div>
+                <div className="flex-1">
+                  <p className="text-sm font-medium text-slate-900">{item.label}</p>
+                  <p className="text-xs text-slate-500">{item.time}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* System Health */}
+        <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-6">
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-xl font-bold text-slate-900 flex items-center gap-2">
+              <Shield className="w-5 h-5 text-green-600" />
+              System Health
+            </h3>
+            <button className="text-sm text-blue-600 hover:text-blue-700 font-medium">
+              Details
+            </button>
+          </div>
+
+          <div className="space-y-4">
+            {[
+              { label: "API Uptime", status: "99.99%", color: "green" },
+              { label: "Database", status: "Healthy", color: "green" },
+              { label: "Queue Service", status: "Healthy", color: "green" },
+              { label: "CDN Cache Hit Rate", status: "98.5%", color: "green" },
+            ].map((item, i) => (
+              <div key={i} className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
+                <span className="text-sm font-medium text-slate-700">{item.label}</span>
+                <div className="flex items-center gap-2">
+                  <div className={`w-2 h-2 bg-${item.color}-500 rounded-full`}></div>
+                  <span className={`text-sm font-semibold text-${item.color}-600`}>
+                    {item.status}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* API Documentation */}
+      <div className="bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl shadow-lg p-8 text-white">
+        <div className="flex items-start justify-between mb-6">
+          <div>
+            <h3 className="text-2xl font-bold mb-2">API Documentation</h3>
+            <p className="text-slate-300">
+              Use these endpoints to integrate with RateCoo
+            </p>
+          </div>
+          <a href="#" className="text-blue-400 hover:text-blue-300 font-medium">
+            Full Docs →
+          </a>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-4">
+          {[
+            { method: "GET", endpoint: "/api/custom/widget/:projectId", desc: "Get widget data" },
+            { method: "POST", endpoint: "/api/reviews", desc: "Submit a review" },
+            { method: "GET", endpoint: "/api/projects/:id/reviews", desc: "Fetch project reviews" },
+            { method: "PUT", endpoint: "/api/reviews/:id", desc: "Update review status" },
+          ].map((api, i) => (
+            <div key={i} className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <span className={`text-xs font-bold px-2 py-1 rounded-md ${
+                  api.method === "GET" ? "bg-blue-500/30 text-blue-200" :
+                  api.method === "POST" ? "bg-green-500/30 text-green-200" :
+                  "bg-yellow-500/30 text-yellow-200"
+                }`}>
+                  {api.method}
+                </span>
+                <code className="text-xs font-mono text-slate-300">{api.endpoint}</code>
+              </div>
+              <p className="text-sm text-slate-400">{api.desc}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
