@@ -12,19 +12,21 @@ body {
   position: relative;
 }
 
-/* Light mode: Clean gradient background */
+/* Light mode: Deep rich gradient with animation */
 body {
-  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 50%, #f1f5f9 100%);
-}
-
-/* Dark mode: Deep space gradient */
-.dark body {
-  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 25%, #0f172a 50%, #1e293b 75%, #0f172a 100%);
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 25%, #1e1b4b 50%, #0f172a 75%, #1e293b 100%);
   background-size: 400% 400%;
   animation: darkGradient 20s ease infinite;
 }
 
-/* Light mode: Subtle pattern overlay */
+/* Dark mode: Clean light gradient */
+.dark body {
+  background: linear-gradient(135deg, #fefefe 0%, #f0f4ff 50%, #fafbff 100%);
+  background-size: 100% 100%;
+  animation: none;
+}
+
+/* Light mode: No pattern overlay (uses aurora instead) */
 body::after {
   content: "";
   position: fixed;
@@ -32,18 +34,20 @@ body::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.03) 0%, transparent 50%),
-                    radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
+  background-image: none;
   pointer-events: none;
   z-index: 0;
-  opacity: 1;
-}
-
-.dark body::after {
   opacity: 0;
 }
 
-/* Aurora Borealis effect - only in dark mode */
+/* Dark mode: Subtle light pattern overlay */
+.dark body::after {
+  background-image: radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.04) 0%, transparent 50%),
+                    radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.04) 0%, transparent 50%);
+  opacity: 1;
+}
+
+/* Aurora Borealis effect - active in light mode */
 body::before {
   content: "";
   position: fixed;
@@ -52,27 +56,28 @@ body::before {
   width: 100%;
   height: 100%;
   background: 
-    radial-gradient(ellipse at 20% 50%, rgba(59, 130, 246, 0.2) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 30%, rgba(139, 92, 246, 0.2) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 70%, rgba(34, 197, 94, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 30% 20%, rgba(168, 85, 247, 0.15) 0%, transparent 50%);
+    radial-gradient(ellipse at 20% 50%, rgba(59, 130, 246, 0.25) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 30%, rgba(139, 92, 246, 0.25) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 70%, rgba(34, 197, 94, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 30% 20%, rgba(168, 85, 247, 0.2) 0%, transparent 50%);
   background-size: 150% 150%;
   animation: aurora 15s ease-in-out infinite;
   pointer-events: none;
   z-index: 0;
-  opacity: 0;
+  opacity: 1;
   mix-blend-mode: screen;
 }
 
+/* Dark mode: No aurora */
 .dark body::before {
-  opacity: 1;
+  opacity: 0;
 }
 
 button:disabled {
   @apply cursor-not-allowed opacity-50;
 }
 
-/* Starry background styles - only visible in dark mode */
+/* Starry background styles - visible in light mode */
 .stars::before {
   content: "";
   position: absolute;
@@ -91,13 +96,14 @@ button:disabled {
     radial-gradient(1px 1px at 15% 90%, white, transparent);
   background-size: 200px 200px, 300px 300px, 250px 250px, 400px 400px;
   background-repeat: repeat;
-  opacity: 0;
+  opacity: 0.8;
   animation: drift 120s linear infinite, twinkle1 6s ease-in-out infinite;
   transition: opacity 0.5s ease;
 }
 
+/* Dark mode: No stars */
 .dark .stars::before {
-  opacity: 0.7;
+  opacity: 0;
 }
 
 .stars::after {
@@ -115,13 +121,14 @@ button:disabled {
     radial-gradient(1.5px 1.5px at 90% 30%, rgba(255,255,255,0.85), transparent);
   background-size: 300px 300px, 400px 400px;
   background-repeat: repeat;
-  opacity: 0;
+  opacity: 0.9;
   animation: drift 180s linear infinite reverse, twinkle2 8s ease-in-out infinite;
   transition: opacity 0.5s ease;
 }
 
+/* Dark mode: No stars */
 .dark .stars::after {
-  opacity: 0.8;
+  opacity: 0;
 }
 
 .bright-stars {
@@ -138,11 +145,12 @@ button:disabled {
     0 0 6px 2px rgba(255, 255, 255, 0.8),
     0 0 12px 4px rgba(255, 255, 255, 0.4);
   animation: pulse 3s ease-in-out infinite;
-  opacity: 0;
+  opacity: 1;
 }
 
+/* Dark mode: No bright stars */
 .dark .bright-star {
-  opacity: 1;
+  opacity: 0;
 }
 
 .bright-star:nth-child(1) { top: 15%; left: 25%; animation-delay: 0s; }

@@ -8,53 +8,53 @@ export default function Dashboard() {
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {/* Total Projects */}
-        <div className="group relative bg-white dark:bg-slate-800 rounded-2xl shadow-lg dark:shadow-2xl dark:shadow-slate-950/50 border border-slate-200 dark:border-slate-700 p-6 hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all duration-300 overflow-hidden">
-          <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 dark:from-blue-500/20 dark:to-indigo-500/20 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
+        <div className="group relative bg-slate-800 dark:bg-white rounded-2xl shadow-2xl shadow-slate-950/50 dark:shadow-lg border border-slate-700 dark:border-slate-200 p-6 hover:shadow-slate-900/50 dark:hover:shadow-xl transition-all duration-300 overflow-hidden">
+          <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-500/20 to-indigo-500/20 dark:from-blue-500/10 dark:to-indigo-500/10 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
           <div className="relative">
             <div className="flex items-center justify-between mb-4">
               <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
                 <FolderKanban className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xs font-semibold text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-950/30 px-2 py-1 rounded-full">
+              <span className="text-xs font-semibold text-green-400 dark:text-green-600 bg-green-950/30 dark:bg-green-50 px-2 py-1 rounded-full">
                 +0%
               </span>
             </div>
-            <p className="text-sm font-medium text-slate-600 dark:text-slate-400 mb-1">Total Projects</p>
-            <p className="text-3xl font-bold text-slate-900 dark:text-white">0</p>
+            <p className="text-sm font-medium text-slate-400 dark:text-slate-600 mb-1">Total Projects</p>
+            <p className="text-3xl font-bold text-white dark:text-slate-900">0</p>
           </div>
         </div>
 
         {/* Total Reviews */}
-        <div className="group relative bg-white dark:bg-slate-800 rounded-2xl shadow-lg dark:shadow-2xl dark:shadow-slate-950/50 border border-slate-200 dark:border-slate-700 p-6 hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all duration-300 overflow-hidden">
-          <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-yellow-500/10 to-orange-500/10 dark:from-yellow-500/20 dark:to-orange-500/20 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
+        <div className="group relative bg-slate-800 dark:bg-white rounded-2xl shadow-2xl shadow-slate-950/50 dark:shadow-lg border border-slate-700 dark:border-slate-200 p-6 hover:shadow-slate-900/50 dark:hover:shadow-xl transition-all duration-300 overflow-hidden">
+          <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-yellow-500/20 to-orange-500/20 dark:from-yellow-500/10 dark:to-orange-500/10 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
           <div className="relative">
             <div className="flex items-center justify-between mb-4">
               <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
                 <Star className="w-6 h-6 text-white fill-white" />
               </div>
-              <span className="text-xs font-semibold text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-950/30 px-2 py-1 rounded-full">
+              <span className="text-xs font-semibold text-green-400 dark:text-green-600 bg-green-950/30 dark:bg-green-50 px-2 py-1 rounded-full">
                 +0%
               </span>
             </div>
-            <p className="text-sm font-medium text-slate-600 dark:text-slate-400 mb-1">Total Reviews</p>
-            <p className="text-3xl font-bold text-slate-900 dark:text-white">0</p>
+            <p className="text-sm font-medium text-slate-400 dark:text-slate-600 mb-1">Total Reviews</p>
+            <p className="text-3xl font-bold text-white dark:text-slate-900">0</p>
           </div>
         </div>
 
         {/* Average Rating */}
-        <div className="group relative bg-white dark:bg-slate-800 rounded-2xl shadow-lg dark:shadow-2xl dark:shadow-slate-950/50 border border-slate-200 dark:border-slate-700 p-6 hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all duration-300 overflow-hidden">
-          <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-500/10 to-pink-500/10 dark:from-purple-500/20 dark:to-pink-500/20 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
+        <div className="group relative bg-slate-800 dark:bg-white rounded-2xl shadow-2xl shadow-slate-950/50 dark:shadow-lg border border-slate-700 dark:border-slate-200 p-6 hover:shadow-slate-900/50 dark:hover:shadow-xl transition-all duration-300 overflow-hidden">
+          <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-500/20 to-pink-500/20 dark:from-purple-500/10 dark:to-pink-500/10 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
           <div className="relative">
             <div className="flex items-center justify-between mb-4">
               <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center shadow-lg">
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xs font-semibold text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-950/30 px-2 py-1 rounded-full">
+              <span className="text-xs font-semibold text-green-400 dark:text-green-600 bg-green-950/30 dark:bg-green-50 px-2 py-1 rounded-full">
                 +0%
               </span>
             </div>
-            <p className="text-sm font-medium text-slate-600 dark:text-slate-400 mb-1">Avg. Rating</p>
-            <p className="text-3xl font-bold text-slate-900 dark:text-white">0.0</p>
+            <p className="text-sm font-medium text-slate-400 dark:text-slate-600 mb-1">Avg. Rating</p>
+            <p className="text-3xl font-bold text-white dark:text-slate-900">0.0</p>
           </div>
         </div>
 
@@ -80,8 +80,8 @@ export default function Dashboard() {
       {/* Quick Actions & Recent Activity */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Quick Actions */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg dark:shadow-2xl dark:shadow-slate-950/50 border border-slate-200 dark:border-slate-700 p-6">
-          <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+        <div className="bg-slate-800 dark:bg-white rounded-2xl shadow-2xl shadow-slate-950/50 dark:shadow-lg border border-slate-700 dark:border-slate-200 p-6">
+          <h3 className="text-lg font-bold text-white dark:text-slate-900 mb-4 flex items-center gap-2">
             <div className="w-2 h-2 bg-blue-600 dark:bg-blue-500 rounded-full"></div>
             Quick Actions
           </h3>
@@ -115,8 +115,8 @@ export default function Dashboard() {
         </div>
 
         {/* Recent Activity */}
-        <div className="lg:col-span-2 bg-white dark:bg-slate-800 rounded-2xl shadow-lg dark:shadow-2xl dark:shadow-slate-950/50 border border-slate-200 dark:border-slate-700 p-6">
-          <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+        <div className="lg:col-span-2 bg-slate-800 dark:bg-white rounded-2xl shadow-2xl shadow-slate-950/50 dark:shadow-lg border border-slate-700 dark:border-slate-200 p-6">
+          <h3 className="text-lg font-bold text-white dark:text-slate-900 mb-4 flex items-center gap-2">
             <div className="w-2 h-2 bg-purple-600 dark:bg-purple-500 rounded-full"></div>
             Recent Activity
           </h3>
