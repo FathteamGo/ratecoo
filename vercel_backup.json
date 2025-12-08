@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  // "projects": [
+  //   {
+  //     "name": "landing",
+  //     "rootDirectory": "apps/landing"
+  //   },
+  //   {
+  //     "name": "member",
+  //     "rootDirectory": "apps/member"
+  //   },
+  //   {
+  //     "name": "admin",
+  //     "rootDirectory": "apps/admin"
+  //   },
+  //   {
+  //     "name": "widget",
+  //     "rootDirectory": "apps/widget"
+  //   }
+  // ]
+}
