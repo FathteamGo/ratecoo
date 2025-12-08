@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { Star } from "lucide-react";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -28,9 +29,20 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-900">
+    <div className="min-h-screen flex items-center justify-center">
       <div className="bg-white dark:bg-slate-800 rounded-lg shadow-xl dark:shadow-2xl dark:shadow-slate-950/50 p-8 max-w-md w-full border border-transparent dark:border-slate-700">
-        <h1 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Get Started</h1>
+        {/* Logo Section */}
+        <div className="text-center mb-8">
+          <div className="flex justify-center mb-3">
+            <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+              <Star className="w-8 h-8 text-white fill-white" />
+            </div>
+          </div>
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2">RateCoo</h1>
+          <p className="text-sm text-slate-600 dark:text-slate-400">Review Management Platform</p>
+        </div>
+
+        <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-6 text-center">Create Your Account</h2>
         <form onSubmit={handleSubmit}>
           {error && (
             <div className="mb-4 p-4 bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded-md text-red-700 dark:text-red-400">
@@ -83,7 +95,7 @@ export default function RegisterPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-blue-600 dark:bg-blue-500 text-white font-medium py-2 rounded-md hover:bg-blue-700 dark:hover:bg-blue-600 disabled:opacity-50 mb-4"
+            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium py-2 rounded-md hover:shadow-lg hover:shadow-blue-500/50 transition-all disabled:opacity-50 mb-4"
           >
             {loading ? "Creating account..." : "Create Account"}
           </button>
