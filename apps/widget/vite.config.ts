@@ -18,6 +18,9 @@ export default defineConfig({
     },
     minify: true,
   },
+  preview: {
+    allowedHosts: true, // Allows any host to access the preview server
+  },
   server: {
     port: 3003,
     host: "0.0.0.0",
