@@ -9,8 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "preact": "^10.21.0",
-    "@ratecoo/db": "workspace:*"
+    "preact": "^10.21.0"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.8.2",

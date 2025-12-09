@@ -46,8 +46,7 @@ function ReviewWidget({ projectId }: { projectId: string }) {
 
   useEffect(() => {
     // For development, use mock data if API not available
-    const isDev = import.meta.env.DEV;
-    
+    const isDev = (import.meta as any).env?.DEV || false;    
     if (isDev) {
       // Mock config for development
       setConfig({
@@ -81,7 +80,7 @@ function ReviewWidget({ projectId }: { projectId: string }) {
     setSubmitting(true);
 
     // For development, just simulate success
-    const isDev = import.meta.env.DEV;
+    const isDev = false; // Disabled for production
     
     if (isDev) {
       console.log("Dev mode - Review submitted:", { name, email, whatsapp, rating, comment });
@@ -102,7 +101,7 @@ function ReviewWidget({ projectId }: { projectId: string }) {
 
     try {
       const res = await fetch(
-        `${window.location.origin}/api/reviews`,
+        `https://admin.ratecoo.com/api/reviews/slug/risefest`, //hardcode sementara
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -357,7 +356,7 @@ function ReviewWidget({ projectId }: { projectId: string }) {
             h("label", { style: { color: colors.text, fontWeight: 600 } }, "Comment"),
             h("textarea", {
               value: comment,
-              onInput: (e) =>
+              onInput: (e: any) =>
                 setComment((e.target as HTMLTextAreaElement).value),
               placeholder: "Share your experience...",
               style: {
@@ -416,19 +415,37 @@ function ReviewWidget({ projectId }: { projectId: string }) {
   );
 }
 
-// Get project ID from script src or data attribute
+// Get project ID or slug from script src or data attributes
 const scripts = document.getElementsByTagName("script");
 let projectId = "demo-project";
+let projectSlug = "";
 
 for (let script of scripts) {
   const src = script.src;
   if (src.includes("widget.js")) {
-    projectId = src.split("project=")[1] || projectId;
+    // Check for project ID parameter
+    if (src.includes("project=")) {
+      projectId = src.split("project=")[1].split("&")[0] || projectId;
+    }
+    // Check for slug parameter
+    if (src.includes("slug=")) {
+      projectSlug = src.split("slug=")[1].split("&")[0] || "";
+    }
     break;
   }
+  
+  // Check data attributes
   const dataProject = script.getAttribute("data-project");
   if (dataProject) {
     projectId = dataProject;
+  }
+  
+  const dataSlug = script.getAttribute("data-slug");
+  if (dataSlug) {
+    projectSlug = dataSlug;
+  }
+  
+  if (dataProject || dataSlug) {
     break;
   }
 }
@@ -436,5 +453,14 @@ for (let script of scripts) {
 // Mount widget
 const container = document.getElementById("ratecoo-widget");
 if (container) {
-  render(h(ReviewWidget, { projectId }), container);
+  // If we have a slug, use the slug-based widget
+  if (projectSlug) {
+    import("./routes/[slug]").then(module => {
+      const WidgetBySlug = module.default;
+      render(h(WidgetBySlug, { slug: projectSlug }), container);
+    });
+  } else {
+    // Otherwise use the existing project ID-based widget
+    render(h(ReviewWidget, { projectId }), container);
+  }
 }

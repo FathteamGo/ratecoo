@@ -6,7 +6,8 @@
     "dev": "next dev --port 3002 --hostname 0.0.0.0",
     "build": "next build",
     "lint": "next lint",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "start": "next start --port 5000 --hostname 0.0.0.0"
   },
   "dependencies": {
     "@libsql/client": "^0.14.0",
@@ -16,6 +17,7 @@
     "framer-motion": "^11.0.3",
     "lucide-react": "^0.263.1",
     "next": "^16.0.0",
+    "payload": "^3.67.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

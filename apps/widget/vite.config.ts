@@ -16,7 +16,7 @@ export default defineConfig({
         entryFileNames: "widget.js",
       },
     },
-    minify: "terser",
+    minify: true,
   },
   server: {
     port: 3003,

@@ -10,6 +10,7 @@ export async function GET() {
       id: reviews.id,
       project_id: reviews.project_id,
       customer_name: reviews.customer_name,
+      customer_whatsapp: reviews.customer_whatsapp,
       rating: reviews.rating,
       comment: reviews.comment,
       source: reviews.source,

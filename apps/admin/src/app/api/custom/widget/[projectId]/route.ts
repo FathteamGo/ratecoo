@@ -1,12 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(
+export const GET = async (
   request: NextRequest,
-  { params }: { params: { projectId: string } }
-) {
+  { params }: { params: Promise<{ projectId: string }> }
+) => {
   try {
+    // Resolve the params promise
+    const resolvedParams = await params;
+    
     const mockProject = {
-      id: params.projectId,
+      id: resolvedParams.projectId,
       name: "Sample Project",
       settings: {
         color: "#3B82F6",
@@ -28,9 +31,9 @@ export async function GET(
       { status: 500 }
     );
   }
-}
+};
 
-export async function OPTIONS() {
+export const OPTIONS = async () => {
   return new NextResponse(null, {
     headers: {
       "Access-Control-Allow-Origin": "*",
@@ -38,4 +41,4 @@ export async function OPTIONS() {
       "Access-Control-Allow-Headers": "Content-Type",
     },
   });
-}
+};

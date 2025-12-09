@@ -15,6 +15,7 @@ interface Review {
   id?: string;
   project_id: string;
   customer_name: string;
+  customer_whatsapp?: string | null;
   rating: number;
   comment?: string | null;
   status: string;
@@ -28,6 +29,7 @@ interface Project {
 export default function ReviewModal({ isOpen, onClose, onSubmit, initialData, projects }: ReviewModalProps) {
   const [projectId, setProjectId] = useState(initialData?.project_id || "");
   const [customerName, setCustomerName] = useState(initialData?.customer_name || "");
+  const [customerWhatsapp, setCustomerWhatsapp] = useState(initialData?.customer_whatsapp || "");
   const [rating, setRating] = useState(initialData?.rating || 5);
   const [comment, setComment] = useState(initialData?.comment || "");
   const [status, setStatus] = useState(initialData?.status || "pending");
@@ -37,12 +39,14 @@ export default function ReviewModal({ isOpen, onClose, onSubmit, initialData, pr
     if (initialData) {
       setProjectId(initialData.project_id);
       setCustomerName(initialData.customer_name);
+      setCustomerWhatsapp(initialData.customer_whatsapp || "");
       setRating(initialData.rating);
       setComment(initialData.comment || "");
       setStatus(initialData.status);
     } else {
       setProjectId(projects[0]?.id || "");
       setCustomerName("");
+      setCustomerWhatsapp("");
       setRating(5);
       setComment("");
       setStatus("pending");
@@ -57,6 +61,7 @@ export default function ReviewModal({ isOpen, onClose, onSubmit, initialData, pr
       const reviewData: Partial<Review> = {
         project_id: projectId,
         customer_name: customerName,
+        customer_whatsapp: customerWhatsapp,
         rating,
         comment,
         status,
@@ -121,6 +126,19 @@ export default function ReviewModal({ isOpen, onClose, onSubmit, initialData, pr
                 onChange={(e) => setCustomerName(e.target.value)}
                 className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
+              />
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium text-slate-900 dark:text-slate-200 mb-2">
+                WhatsApp Number
+              </label>
+              <input
+                type="text"
+                value={customerWhatsapp}
+                onChange={(e) => setCustomerWhatsapp(e.target.value)}
+                placeholder="62812345678"
+                className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
             

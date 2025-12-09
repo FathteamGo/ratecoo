@@ -8,6 +8,7 @@ interface Review {
   id: string;
   project_id: string;
   customer_name: string;
+  customer_whatsapp: string | null;
   rating: number;
   comment: string | null;
   source: string;
@@ -185,6 +186,7 @@ export default function ReviewsPage() {
             <thead className="bg-slate-50 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700">
               <tr>
                 <th className="text-left py-4 px-6 text-sm font-semibold text-slate-900 dark:text-white">Customer</th>
+                <th className="text-left py-4 px-6 text-sm font-semibold text-slate-900 dark:text-white">WhatsApp</th>
                 <th className="text-left py-4 px-6 text-sm font-semibold text-slate-900 dark:text-white">Rating</th>
                 <th className="text-left py-4 px-6 text-sm font-semibold text-slate-900 dark:text-white">Comment</th>
                 <th className="text-left py-4 px-6 text-sm font-semibold text-slate-900 dark:text-white">Project</th>
@@ -199,6 +201,9 @@ export default function ReviewsPage() {
                 <tr key={review.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
                   <td className="py-4 px-6">
                     <div className="font-medium text-slate-900 dark:text-white">{review.customer_name}</div>
+                  </td>
+                  <td className="py-4 px-6 text-slate-700 dark:text-slate-300">
+                    {review.customer_whatsapp || "-"}
                   </td>
                   <td className="py-4 px-6">
                     {renderStars(review.rating)}
