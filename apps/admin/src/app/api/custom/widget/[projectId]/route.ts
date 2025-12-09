@@ -5,9 +5,6 @@ export async function GET(
   { params }: { params: { projectId: string } }
 ) {
   try {
-    // TODO: Fetch project from database
-    // This will be implemented once database connection is ready
-
     const mockProject = {
       id: params.projectId,
       name: "Sample Project",

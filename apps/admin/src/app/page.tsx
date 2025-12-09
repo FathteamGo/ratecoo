@@ -101,7 +101,7 @@ export default function AdminPage() {
       {/* Management Sections */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Users Section */}
-        <Link href="/admin/users" className="group">
+        <Link href="/users" className="group">
           <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg dark:shadow-2xl dark:shadow-slate-950/50 border border-slate-200 dark:border-slate-700 p-8 hover:shadow-xl hover:border-blue-300 dark:hover:border-blue-500 transition-all duration-300 h-full">
             <div className="flex items-center justify-between mb-6">
               <div className="w-14 h-14 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-100 dark:to-indigo-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -127,7 +127,7 @@ export default function AdminPage() {
         </Link>
 
         {/* Projects Section */}
-        <Link href="/admin/projects" className="group">
+        <Link href="/projects" className="group">
           <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg dark:shadow-2xl dark:shadow-slate-950/50 border border-slate-200 dark:border-slate-700 p-8 hover:shadow-xl hover:border-purple-300 dark:hover:border-purple-500 transition-all duration-300 h-full">
             <div className="flex items-center justify-between mb-6">
               <div className="w-14 h-14 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-100 dark:to-pink-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -153,7 +153,7 @@ export default function AdminPage() {
         </Link>
 
         {/* Reviews Section */}
-        <Link href="/admin/reviews" className="group">
+        <Link href="/reviews" className="group">
           <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg dark:shadow-2xl dark:shadow-slate-950/50 border border-slate-200 dark:border-slate-700 p-8 hover:shadow-xl hover:border-orange-300 dark:hover:border-orange-500 transition-all duration-300 h-full">
             <div className="flex items-center justify-between mb-6">
               <div className="w-14 h-14 bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-100 dark:to-orange-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">

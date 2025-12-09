@@ -18,9 +18,19 @@ export default function RegisterPage() {
     setError("");
 
     try {
-      // TODO: Implement registration
-      // For now, just redirect to signin
-      router.push("/auth/signin");
+      const res = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, password }),
+      });
+
+      if (res.ok) {
+        // Registration successful, redirect to signin
+        router.push("/auth/signin?registered=true");
+      } else {
+        const data = await res.json();
+        setError(data.error || "Registration failed");
+      }
     } catch (err) {
       setError("Registration failed");
     } finally {

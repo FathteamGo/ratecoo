@@ -54,21 +54,21 @@ export default function RootLayout({
                 Dashboard
               </a>
               <a
-                href="/admin/users"
+                href="/users"
                 className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all duration-300"
               >
                 <Users className="w-5 h-5" />
                 Users
               </a>
               <a
-                href="/admin/projects"
+                href="/projects"
                 className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all duration-300"
               >
                 <FolderKanban className="w-5 h-5" />
                 Projects
               </a>
               <a
-                href="/admin/reviews"
+                href="/reviews"
                 className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all duration-300"
               >
                 <MessageSquare className="w-5 h-5" />

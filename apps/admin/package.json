@@ -9,7 +9,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@libsql/client": "^0.5.6",
+    "@libsql/client": "^0.14.0",
     "@ratecoo/db": "workspace:*",
     "@ratecoo/ui": "workspace:*",
     "drizzle-orm": "^0.45.0",
