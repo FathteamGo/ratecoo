@@ -19,7 +19,10 @@ export default defineConfig({
     minify: true,
   },
   preview: {
-    allowedHosts: true, // Allows any host to access the preview server
+    allowedHosts: [
+      'admin.ratecoo.com',
+      'widget.ratecoo.com'
+    ],
   },
   server: {
     port: 3003,
