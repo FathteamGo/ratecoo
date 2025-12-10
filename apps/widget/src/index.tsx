@@ -450,6 +450,11 @@ for (let script of scripts) {
   }
 }
 
+// Debug logging to see what values we have
+console.log("Widget script detected:");
+console.log("projectId:", projectId);
+console.log("projectSlug:", projectSlug);
+
 // Mount widget
 const container = document.getElementById("ratecoo-widget");
 if (container) {
