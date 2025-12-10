@@ -62,8 +62,8 @@ function ReviewWidget({ projectId }: { projectId: string }) {
       return;
     }
 
-    // Fetch widget config
-    fetch(`${window.location.origin}/api/custom/widget/${projectId}`)
+    // Fetch widget config using absolute URL
+    fetch(`https://admin.ratecoo.com/api/custom/widget/${projectId}`)
       .then((res) => res.json())
       .then((data) => {
         setConfig(data);
@@ -101,7 +101,7 @@ function ReviewWidget({ projectId }: { projectId: string }) {
 
     try {
       const res = await fetch(
-        `https://admin.ratecoo.com/api/reviews/slug/risefest`, //hardcode sementara
+        `https://admin.ratecoo.com/api/reviews`, // Use the correct endpoint
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

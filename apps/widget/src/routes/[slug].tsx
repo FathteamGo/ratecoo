@@ -30,8 +30,8 @@ export default function WidgetBySlug({ slug }: { slug: string }) {
   useEffect(() => {
     const fetchProjectBySlug = async () => {
       try {
-        // Call the API endpoint to get project by slug
-        const response = await fetch(`/api/projects/slug/${slug}`);
+        // Call the API endpoint to get project by slug using absolute URL
+        const response = await fetch(`https://admin.ratecoo.com/api/projects/slug/${slug}`);
         
         if (!response.ok) {
           throw new Error("Project not found");
@@ -56,8 +56,8 @@ export default function WidgetBySlug({ slug }: { slug: string }) {
     setSubmitting(true);
 
     try {
-      // Use the new endpoint that accepts reviews by project slug
-      const response = await fetch(`/api/reviews/slug/${slug}`, {
+      // Use the new endpoint that accepts reviews by project slug with absolute URL
+      const response = await fetch(`https://admin.ratecoo.com/api/reviews/slug/${slug}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
