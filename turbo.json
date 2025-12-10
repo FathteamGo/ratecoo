@@ -11,6 +11,10 @@
       "outputs": ["dist/**", ".next/**"],
       "dependsOn": ["^build"]
     },
+    "serve": {
+      "cache": false,
+      "dependsOn": ["build"]
+    },
     "lint": {
       "outputs": []
     },
