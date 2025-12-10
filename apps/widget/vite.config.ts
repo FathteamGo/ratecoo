@@ -21,7 +21,8 @@ export default defineConfig({
   preview: {
     allowedHosts: [
       'admin.ratecoo.com',
-      'widget.ratecoo.com'
+      'widget.ratecoo.com',
+      'localhost'
     ],
   },
   server: {
