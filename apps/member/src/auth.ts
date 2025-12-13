@@ -4,38 +4,34 @@ import { database } from "@ratecoo/db/client";
 import { users } from "@ratecoo/db/schema";
 import { eq } from "drizzle-orm";
 
-export const { handlers, auth, signIn, signOut } = NextAuth({
+export const { handlers, auth } = NextAuth({
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
         try {
-          // Validate credentials against database
-          const email = credentials.email as string;
-          const password = credentials.password as string;
-          
-          // Find user in database
-          const dbUsers = await database.select()
+          const email = (credentials?.email ?? "") as string;
+          const password = (credentials?.password ?? "") as string;
+
+          if (!email || !password) return null;
+
+          const dbUsers = await database
+            .select()
             .from(users)
-            .where(eq(users.email, email));
-            
-          if (dbUsers.length === 0) {
-            return null; // User not found
-          }
-          
-          const user = dbUsers[0];
-          
-          // In a real app, you would hash and compare passwords
-          // For now, we'll just check if the password matches
-          if (user.password !== password) {
-            return null; // Invalid password
-          }
-          
+            .where(eq(users.email, email))
+            .limit(1);
+
+          if (dbUsers.length === 0) return null;
+
+          const user = dbUsers[0] as any;
+
+          if ((user.password ?? "") !== password) return null;
+
           return {
             id: user.id,
             email: user.email,
             name: user.name,
             tier: user.tier,
-          };
+          } as any;
         } catch (error) {
           console.error("Authentication error:", error);
           return null;
@@ -50,15 +46,15 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        token.id = user.id;
-        token.tier = (user as any).tier;
+        (token as any).id = (user as any).id;
+        (token as any).tier = (user as any).tier;
       }
       return token;
     },
     async session({ session, token }) {
       if (session.user) {
-        (session.user as any).id = token.id;
-        (session.user as any).tier = token.tier;
+        (session.user as any).id = (token as any).id;
+        (session.user as any).tier = (token as any).tier;
       }
       return session;
     },

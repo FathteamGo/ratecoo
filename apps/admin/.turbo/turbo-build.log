@@ -1,0 +1,52 @@
+[?9001h[?1004h[?25l[2J[m[2;1H> admin@0.1.0 build C:\laragon\www\ratecoo\apps\admin
+> next build[6;1H]0;C:\WINDOWS\system32\cmd.exe[?25h[?25l [33m[1m⚠[m Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of C:\laragon\www\package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * C:\laragon\www\ratecoo\pnpm-lock.yaml[20;1H[?25h(node:19500) [MODULE_TYPELESS_PACKAGE_JSON] Warning
+[19;51Hg: Module type of file:///C:/laragon/www/ratecoo/app
+[19;51Hps/admin/next.config.js is not specified and it does
+[19;51Hsn't parse as CommonJS.
+Reparsing as ES module because module syntax was de
+[19;51Hetected. This incurs a performance overhead.        
+To eliminate this warning, add "type": "module" to 
+[19;51H C:\laragon\www\ratecoo\apps\admin\package.json.    
+(Use `node --trace-warnings ...` to show where the 
+[19;51H warning was created)
+   [38;2;173;127;168m[1m▲ Next.js 16.0.7[m (Turbopack)
+   - Environments: .env.production
+
+ [37m[1m [m Creating an optimized production build ...
+(node:19500) [MODULE_TYPELESS_PACKAGE_JSON] Warning
+[19;51Hg: Module type of file:///C:/laragon/www/ratecoo/app
+[19;51Hps/admin/next.config.js is not specified and it does
+[19;51Hsn't parse as CommonJS.
+Reparsing as ES module because module syntax was de
+[19;51Hetected. This incurs a performance overhead.        
+To eliminate this warning, add "type": "module" to 
+[19;51H C:\laragon\www\ratecoo\apps\admin\package.json.    
+(Use `node --trace-warnings ...` to show where the 
+[19;51H warning was created)
+ [32m[1m✓[m Compiled successfully in 16.6s
+[?25l [37m[1m [m Running TypeScript  [36m.[m[K[51C [37m[1m [m Running TypeScript  [36m..[m[K[51C [37m[1m [m Running TypeScript  [36m...[m[K[51C [37m[1m [m Running TypeScript  [36m.[m[K[51C [37m[1m [m Running TypeScript  [36m..[m[K[51C [37m[1m [m Running TypeScript  [36m...[m[K[51C [37m[1m [m Running TypeScript  [36m.[m[K[51C [37m[1m [m Running TypeScript  [36m..[m[K[51C [37m[1m [m Running TypeScript  [36m...[m[K[51C [37m[1m [m Running TypeScript  [36m.[m[K[51C [37m[1m [m Running TypeScript  [36m..[m[K[51C [37m[1m [m Running TypeScript  [36m...[m[K[51C [37m[1m [m Running TypeScript  [36m.[m[K[51C [37m[1m [m Running TypeScript  [36m..[m[K[51C [37m[1m [m Running TypeScript  [36m...[m[K[51C [37m[1m [m Running TypeScript  [36m.[m[K[51C [37m[1m [m Running TypeScript  [36m..[m[K[51C [37m[1m [m Running TypeScript  [36m...[m[K[51C [37m[1m [m Running TypeScript  [36m.[m[K[51C [37m[1m [m Running TypeScript  [36m..[m[K[51C [37m[1m [m Running TypeScript  [36m...[m[K[51C [37m[1m [m Running TypeScript  [36m.[m[K[51C [37m[1m [m Running TypeScript  [36m..[m[K[51C [37m[1m [m Running TypeScript  [36m...[m[K[51C [37m[1m [m Running TypeScript  [36m.[m[K[51C [37m[1m [m Running TypeScript  [36m..[m[K[51C [37m[1m [m Running TypeScript  [36m...[m[K[51C [37m[1m [m Running TypeScript  [36m.[m[K[51C [37m[1m [m Running TypeScript  [36m..[m[K[51C [37m[1m [m Running TypeScript  [36m...[m[K[51C [37m[1m [m Running TypeScript  [36m.[m[K[51C [37m[1m [m Running TypeScript  [36m..[m[K[51C [37m[1m [m Running TypeScript  [36m...[m[K[51C [37m[1m [m Running TypeScript  [36m.[m[K[51C [37m[1m [m Running TypeScript  [36m..[m[K[51C [37m[1m [m Running TypeScript  [36m...[m[K[51C [37m[1m [m Running TypeScript  [36m.[m[K[51C [37m[1m [m Running TypeScript  [36m..[m[K[51C [37m[1m [m Running TypeScript  [36m...[m[K[51C [37m[1m [m Running TypeScript  [36m.[m[K[51C [37m[1m [m Running TypeScript  [36m..[m[K[51C [37m[1m [m Running TypeScript  [36m...[m[K[51C [37m[1m [m Running TypeScript  [36m.[m[K[51C [37m[1m [m Running TypeScript  [36m..[m[K[51C [37m[1m [m Running TypeScript  [36m...[m[K[51C [37m[1m [m Running TypeScript  [36m.[m[K[51C [32m[1m✓[m Finished TypeScript in 9.5s[K[?25h
+ [37m[1m [m Collecting page data using 15 workers  [36m.[?25l[m[K[51C[19;1H [37m[1m [m Collecting page data using 15 workers  [36m..       [m[19;1H[K[51C[18;1H[K[51C [37m[1m [m Collecting page data using 15 workers  [36m...[m[K[51C[17;1H [37m[1m [m Collecting page data using 15 workers  [36m.        [m[17;1H[K[51C[16;1H [37m[1m [m Collecting page data using 15 workers  [36m..       [m[16;1H                                                   [16;103H[15;1H [37m[1m [m Collecting page data using 15 workers  [36m...      [m[15;1H[K[51C[14;1H [37m[1m [m Collecting page data using 15 workers  [36m.        [m[14;1H                                                   [14;103H[13;1H [37m[1m [m Collecting page data using 15 workers  [36m..       [m[13;1H[K[51C[12;1H [37m[1m [m Collecting page data using 15 workers  [36m...      [m[12;1H                                                   [12;103H[11;1H [37m[1m [m Collecting page data using 15 workers  [36m.        [m[11;1H[K[51C[10;1H [37m[1m [m Collecting page data using 15 workers  [36m..       [m[10;1H                                                   [10;103H[9;1H [37m[1m [m Collecting page data using 15 workers  [36m...      [m[9;1H                                                   [9;103H[8;1H [37m[1m [m Collecting page data using 15 workers  [36m.        [m[8;1H                                                   [8;103H[7;1H [37m[1m [m Collecting page data using 15 workers in 2.7s    [32m[1m✓[m Collecting page data using 15 workers in 2.7s 
+[?25h[?25l [37m[1m [m Generating static pages using 15 workers (0/9)  [36m[    ][m                                                   [10;103H[9;1H [37m[1m [m Generating static pages using 15 workers (0/9)  [36m[=   ][m                                                   [10;103H[9;1H [37m[1m [m Generating static pages using 15 workers (0/9)  [36m[==  ][m                                                   [10;103H[9;1H [37m[1m [m Generating static pages using 15 workers (0/9)  [36m[=== ][m                                                   [10;103H[9;1H [37m[1m [m Generating static pages using 15 workers (0/9)  [36m[ ===][m                                                   [10;103H[9;1H [37m[1m [m Generating static pages using 15 workers (0/9)  [36m[  ==][m                                                   [10;103H[9;1H [37m[1m [m Generating static pages using 15 workers (0/9)  [36m[   =][m                                                   [10;103H[9;1H [37m[1m [m Generating static pages using 15 workers (0/9)  [36m[    ][m                                                   [10;103H[9;1H [37m[1m [m Generating static pages using 15 workers (3/9)  [36m[   =][m                                                   [10;103H[9;1H [37m[1m [m Generating static pages using 15 workers (3/9)  [36m[  ==][m                                                   [10;103H[9;1H [32m[1m✓[m Generating static pages using 15 workers (9/9) in 1937.9ms
+[?25h[?25l [37m[1m [m Finalizing page optimization  [36m.[m[K[51C [37m[1m [m Finalizing page optimization  [36m..[m[K[51C [37m[1m [m Finalizing page optimization  [36m...[m[K[51C [37m[1m [m Finalizing page optimization  [36m.[m[K[51C [37m[1m [m Finalizing page optimization  [36m..[m[K[51C [37m[1m [m Finalizing page optimization  [36m...[m[K[51C [37m[1m [m Finalizing page optimization  [36m.[m[K[51C [37m[1m [m Finalizing page optimization  [36m..[m[K[51C [37m[1m [m Finalizing page optimization  [36m...[m[K[51C [37m[1m [m Finalizing page optimization  [36m.[m[K[51C [37m[1m [m Finalizing page optimization  [36m..[m[K[51C [37m[1m [m Finalizing page optimization  [36m...[m[K[51C [32m[1m✓[m Finalizing page optimization in 2.3s    [4m[13;1HRoute (app)[24m
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api/custom/widget/[projectId]
+├ ƒ /api/projects
+├ ƒ /api/projects/slug/[slug]
+├ ƒ /api/reviews
+├ ƒ /api/reviews/slug/[slug][?25h
+├ ƒ /api/users
+├ ○ /projects
+├ ○ /reviews
+└ ○ /users
+
+
+○  (Static)   prerendered as static content        
+ƒ  (Dynamic)  server-rendered on demand
+
+[?9001l[?1004l
