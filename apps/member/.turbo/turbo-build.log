@@ -1,0 +1,39 @@
+[?9001h[?1004h[?25l[2J[m[2;1H> member@0.1.0 build C:\laragon\www\ratecoo\apps\member
+> next build[5;1H]0;C:\WINDOWS\system32\cmd.exe[?25h [33m[1m⚠[m Invalid next.config.js options detected: 
+[?25l [33m[1m⚠[m     Unrecognized key(s) in object: 'allowedDevOrigins' at "experimental"
+ [33m[1m⚠[m See more info here: https://nextjs.org/docs/messages/invalid-next-config
+ [33m[1m⚠[m Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of C:\laragon\www\package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * C:\laragon\www\ratecoo\pnpm-lock.yaml[18;1H[?25h(node:22036) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/laragon/www/ratecoo/apps/member/next.config.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to C:\laragon\www\ratecoo\apps\member\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+   [38;2;173;127;168m[1m▲ Next.js 16.0.7[m (Turbopack)
+[?25l   - Environments: .env
+   - Experiments (use with caution):
+     ? [9mallowedDevOrigins[29m (invalid experimental key)[28;1H[?25h [37m[1m [m Creating an optimized production build ...
+(node:22036) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/laragon/www/ratecoo/apps/member/next.config.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to C:\laragon\www\ratecoo\apps\member\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [32m[1m✓[m Compiled successfully in 12.9s
+[?25l [37m[1m [m Running TypeScript  [36m.[m[K[110C [37m[1m [m Running TypeScript  [36m..[m[K[110C [37m[1m [m Running TypeScript  [36m...[m[K[110C [37m[1m [m Running TypeScript  [36m.[m[K[110C [37m[1m [m Running TypeScript  [36m..[m[K[110C [37m[1m [m Running TypeScript  [36m...[m[K[110C [37m[1m [m Running TypeScript  [36m.[m[K[110C [37m[1m [m Running TypeScript  [36m..[m[K[110C [37m[1m [m Running TypeScript  [36m...[m[K[110C [37m[1m [m Running TypeScript  [36m.[m[K[110C [37m[1m [m Running TypeScript  [36m..[m[K[110C [37m[1m [m Running TypeScript  [36m...[m[K[110C [37m[1m [m Running TypeScript  [36m.[m[K[110C [37m[1m [m Running TypeScript  [36m..[m[K[110C [37m[1m [m Running TypeScript  [36m...[m[K[110C [37m[1m [m Running TypeScript  [36m.[m[K[110C [37m[1m [m Running TypeScript  [36m..[m[K[110C [37m[1m [m Running TypeScript  [36m...[m[K[110C [37m[1m [m Running TypeScript  [36m.[m[K[110C [37m[1m [m Running TypeScript  [36m..[m[K[110C [37m[1m [m Running TypeScript  [36m...[m[K[110C [37m[1m [m Running TypeScript  [36m.[m[K[110C [37m[1m [m Running TypeScript  [36m..[m[K[110C [37m[1m [m Running TypeScript  [36m...[m[K[110C [37m[1m [m Running TypeScript  [36m.[m[K[110C [37m[1m [m Running TypeScript  [36m..[m[K[110C [37m[1m [m Running TypeScript  [36m...[m[K[110C [37m[1m [m Running TypeScript  [36m.[m[K[110C [37m[1m [m Running TypeScript  [36m..[m[K[110C [37m[1m [m Running TypeScript  [36m...[m[K[110C [32m[1m✓[m Finished TypeScript in 6.1s[K[?25h
+ [37m[1m [m Collecting page data using 15 workers  [36m.[K[?25l[67C[m[K[110C [37m[1m [m Collecting page data using 15 workers  [36m..[m[K[110C [37m[1m [m Collecting page data using 15 workers  [36m...[m[K[110C [37m[1m [m Collecting page data using 15 workers  [36m.[m[K[110C [37m[1m [m Collecting page data using 15 workers  [36m..[m[K[110C [37m[1m [m Collecting page data using 15 workers  [36m...[m[K[110C [37m[1m [m Collecting page data using 15 workers  [36m.[m[K[110C [37m[1m [m Collecting page data using 15 workers  [36m..[m[K[110C [37m[1m [m Collecting page data using 15 workers  [36m...[m[K[110C [32m[1m✓[m Collecting page data using 15 workers in 1767.4ms    [?25h
+ [37m[1m [m Generating static pages using 15 workers (0/5)  [36m[    ][?25l[m[K[110C [37m[1m [m Generating static pages using 15 workers (0/5)  [36m[=   ][m[K[110C [37m[1m [m Generating static pages using 15 workers (0/5)  [36m[==  ][m[K[110C [37m[1m [m Generating static pages using 15 workers (0/5)  [36m[=== ][m[K[110C [37m[1m [m Generating static pages using 15 workers (0/5)  [36m[ ===][m[K[110C [37m[1m [m Generating static pages using 15 workers (0/5)  [36m[  ==][m[K[110C [37m[1m [m Generating static pages using 15 workers (0/5)  [36m[   =][m[K[110C [32m[1m✓[m Generating static pages using 15 workers (5/5) in 1356.6ms[?25h
+[?25l [37m[1m [m Finalizing page optimization  [36m.[m[K[110C [32m[1m✓[m Finalizing page optimization in 41.0ms    [?25h
+
+[4mRoute (app)[24m[K
+┌ ƒ /_not-found
+├ ƒ /api/auth/[...nextauth]
+├ ƒ /auth/signin
+├ ƒ /dashboard
+├ ƒ /projects/[id]
+└ ƒ /projects/new
+
+
+ƒ  (Dynamic)  server-rendered on demand
+
+[?9001l[?1004l

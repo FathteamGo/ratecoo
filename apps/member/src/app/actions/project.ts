@@ -1,6 +1,6 @@
 "use server";
 
-import { database } from "@ratecoo/db";
+import { database } from "@ratecoo/db/client";
 import { projects } from "@ratecoo/db/schema";
 import { eq } from "drizzle-orm";
 
@@ -9,6 +9,18 @@ const PLAN_LIMITS = {
   pro: 5,
 };
 
+function cuid() {
+  return "id_" + Math.random().toString(36).slice(2, 12);
+}
+
+function slugify(input: string) {
+  return input
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export async function createProject(
   userId: string,
   name: string,
@@ -16,11 +28,17 @@ export async function createProject(
   tier: "free" | "pro"
 ) {
   try {
-    // Check plan limits
+    const cleanName = (name ?? "").trim();
+    const cleanSlug = slugify(slug || name);
+
+    if (!cleanName || !cleanSlug) {
+      return { success: false, error: "Invalid name/slug" };
+    }
+
     const userProjects = await database
       .select()
       .from(projects)
-      .where(eq(projects.user_id, userId));
+      .where(eq((projects as any).userId ?? (projects as any).user_id, userId));
 
     const limit = PLAN_LIMITS[tier];
     if (userProjects.length >= limit) {
@@ -30,27 +48,24 @@ export async function createProject(
       };
     }
 
-    // Create project
-    const newProject = {
-      user_id: userId,
-      name,
-      slug,
+    const id = cuid();
+
+    await database.insert(projects).values({
+      id,
+      userId,
+      name: cleanName,
+      slug: cleanSlug,
       settings: {
         color: "#3B82F6",
         show_branding: tier === "free",
         auto_approve_status: "pending",
-      },
-    };
+      } as any,
+      apiKey: tier === "pro" ? cuid() : null,
+    } as any);
 
-    // TODO: Insert into database
-    return {
-      success: true,
-      projectId: "new-project-id",
-    };
+    return { success: true, projectId: id };
   } catch (error) {
-    return {
-      success: false,
-      error: "Failed to create project",
-    };
+    console.error(error);
+    return { success: false, error: "Failed to create project" };
   }
 }
