@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import { Star } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Admin Dashboard - RateCoo",
+  title: "Admin Sign In - RateCoo",
 };
 
-export default function RootLayout({
+export default function AuthLayout({
   children,
 }: {
   children: React.ReactNode;

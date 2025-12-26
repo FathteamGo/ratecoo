@@ -12,6 +12,7 @@ export const users = sqliteTable("users", {
   image: text("image"),
   password: text("password"),
   tier: text("tier", { enum: ["free", "pro"] }).notNull().default("free"),
+  role: text("role", { enum: ["user", "admin"] }).notNull().default("user"),
   created_at: text("created_at")
     .$defaultFn(() => new Date().toISOString())
     .notNull(),

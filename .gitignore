@@ -48,3 +48,5 @@ next-env.d.ts
 # Local SQLite Database
 local.db
 packages/db/local.db
+
+/apps/admin/.turbo
