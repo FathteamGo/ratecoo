@@ -5,6 +5,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Star } from "lucide-react";
 import { signIn } from "next-auth/react";
 
+import { setCookie, getCookie, deleteCookie } from '@/lib/cookie-utils';
+
 export default function SignInPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -18,7 +20,17 @@ export default function SignInPage() {
     if (searchParams.get("registered") === "true") {
       setSuccess("Account created successfully! Please sign in.");
     }
-  }, [searchParams]);
+    
+    // Check if user is already logged in by checking the cookie
+    if (getCookie('user_login_status') === 'authenticated') {
+      router.push("/dashboard");
+    }
+    
+    // Clear any previous login status cookie to ensure clean state
+    if (getCookie('user_login_status')) {
+      deleteCookie('user_login_status');
+    }
+  }, [searchParams, router]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,15 +42,18 @@ export default function SignInPage() {
       email,
       password,
       redirect: false,
+      callbackUrl: "/dashboard",
     });
 
     if (res?.ok) {
-      router.push("/dashboard");
+      // Set a login status cookie to indicate successful authentication
+      setCookie('user_login_status', 'authenticated', 7); // 7 days expiry
+      // Redirect to dashboard after successful login
+      router.push('/dashboard');
     } else {
       setError("Invalid credentials");
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   return (

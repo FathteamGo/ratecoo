@@ -39,7 +39,7 @@ export const { handlers, auth } = NextAuth({
       },
     }),
   ],
-  secret: process.env.AUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
   pages: {
     signIn: "/auth/signin",
   },
@@ -57,6 +57,13 @@ export const { handlers, auth } = NextAuth({
         (session.user as any).tier = (token as any).tier;
       }
       return session;
+    },
+    async redirect({ url, baseUrl }) {
+      // Allows relative callback URLs
+      if (url.startsWith('/')) return `${baseUrl}${url}`;
+      // Allows callback URLs on the same origin
+      else if (new URL(url).origin === baseUrl) return url;
+      return baseUrl;
     },
   },
 });

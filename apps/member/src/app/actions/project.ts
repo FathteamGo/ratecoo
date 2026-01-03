@@ -69,3 +69,71 @@ export async function createProject(
     return { success: false, error: "Failed to create project" };
   }
 }
+
+export async function getUserProjects(userId: string) {
+  try {
+    const userProjects = await database
+      .select({
+        id: projects.id,
+        name: projects.name,
+        slug: projects.slug,
+        created_at: projects.created_at,
+        settings: projects.settings,
+        api_key: projects.api_key,
+      })
+      .from(projects)
+      .where(eq((projects as any).user_id, userId));
+
+    // Map to consistent format
+    const mappedProjects = userProjects.map(project => ({
+      ...project,
+      createdAt: project.created_at,
+      apiKey: project.api_key,
+    }));
+
+    return { success: true, projects: mappedProjects || [] };
+  } catch (error) {
+    console.error(error);
+    return { success: false, error: "Failed to fetch projects", projects: [] };
+  }
+}
+
+export async function updateProject(id: string, userId: string, updates: Partial<typeof projects.$inferInsert>) {
+  try {
+    // Map the updates to match the database schema
+    const dbUpdates: Partial<typeof projects.$inferInsert> = { ...updates };
+    
+    if (dbUpdates.created_at) delete dbUpdates.created_at;
+    if (dbUpdates.apiKey) {
+      dbUpdates.api_key = dbUpdates.apiKey;
+      delete dbUpdates.apiKey;
+    }
+    
+    const result = await database
+      .update(projects)
+      .set(dbUpdates)
+      .where(
+        eq(projects.id, id)
+      );
+
+    return { success: true, projectId: id };
+  } catch (error) {
+    console.error(error);
+    return { success: false, error: "Failed to update project" };
+  }
+}
+
+export async function deleteProject(id: string, userId: string) {
+  try {
+    await database
+      .delete(projects)
+      .where(
+        eq(projects.id, id)
+      );
+
+    return { success: true, projectId: id };
+  } catch (error) {
+    console.error(error);
+    return { success: false, error: "Failed to delete project" };
+  }
+}

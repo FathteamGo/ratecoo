@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft, Copy, Code2, Star, TrendingUp, MessageSquare, ExternalLink, Check } from "lucide-react";
+import { ArrowLeft, Copy, Code2, Star, TrendingUp, MessageSquare, ExternalLink, Check, Edit } from "lucide-react";
 import { useState } from "react";
 
 export default function ProjectDetailsPage({
@@ -37,6 +37,13 @@ export default function ProjectDetailsPage({
           </div>
         </div>
         <div className="flex items-center gap-3">
+          <a
+            href={`/projects/${params.id}/edit`}
+            className="flex items-center gap-2 px-4 py-2 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+          >
+            <Edit className="w-4 h-4" />
+            Edit Project
+          </a>
           <a
             href={`https://ratecoo.com/${params.id}`}
             target="_blank"
@@ -194,6 +201,9 @@ export default function ProjectDetailsPage({
           <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg dark:shadow-2xl dark:shadow-slate-950/50 border border-slate-200 dark:border-slate-700 p-6">
             <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">Quick Actions</h3>
             <div className="space-y-2">
+              <a href={`/projects/${params.id}/edit`} className="w-full block px-4 py-2 text-left text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg transition-colors">
+                ✏️ Edit Project
+              </a>
               <button className="w-full px-4 py-2 text-left text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg transition-colors">
                 ⚙️ Widget Settings
               </button>
@@ -203,7 +213,15 @@ export default function ProjectDetailsPage({
               <button className="w-full px-4 py-2 text-left text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg transition-colors">
                 📧 Email Templates
               </button>
-              <button className="w-full px-4 py-2 text-left text-sm font-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-colors">
+              <button 
+                onClick={() => {
+                  if (confirm('Are you sure you want to delete this project? This action cannot be undone and will permanently remove all associated data.')) {
+                    // In a real implementation, we would call the delete API here
+                    alert('Project deletion would happen here in a full implementation');
+                  }
+                }}
+                className="w-full px-4 py-2 text-left text-sm font-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-colors"
+              >
                 🗑️ Delete Project
               </button>
             </div>
