@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { updateProject } from "@/app/actions/project";
-import { useAuth } from "@/lib/auth-utils";
+import { useAuth } from "@/lib/use-auth";
 import { ArrowLeft, Save } from "lucide-react";
 import { useRouter } from "next/navigation";
 
