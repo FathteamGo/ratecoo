@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { createProject } from "@/app/actions/project";
+import { useAuth } from "@/lib/use-auth";
 import { ArrowLeft, Sparkles, Code, Globe } from "lucide-react";
 
 function slugify(input: string) {
@@ -18,16 +19,22 @@ export default function NewProjectPage() {
   const [slugTouched, setSlugTouched] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const { user, loading: authLoading } = useAuth();
 
   const canAutoSlug = useMemo(() => !slugTouched, [slugTouched]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!user) {
+      setError("You must be signed in to create a project");
+      return;
+    }
+    
     setLoading(true);
     setError("");
 
     try {
-      const result = await createProject("user-1", name, slugify(slug || name), "free");
+      const result = await createProject(user.id, name, slugify(slug || name), user.tier || "free");
 
       if (result.success) {
         window.location.href = `/projects/${result.projectId}`;
@@ -50,6 +57,22 @@ export default function NewProjectPage() {
     setSlugTouched(true);
     setSlug(slugify(value));
   };
+
+  if (authLoading) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <p className="text-slate-600 dark:text-slate-400">Please sign in to create a project</p>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">

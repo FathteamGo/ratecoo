@@ -1,7 +1,8 @@
 "use client";
 
 import { ArrowLeft, Copy, Code2, Star, TrendingUp, MessageSquare, ExternalLink, Check, Edit } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useAuth } from "@/lib/use-auth";
 
 export default function ProjectDetailsPage({
   params,
@@ -9,14 +10,86 @@ export default function ProjectDetailsPage({
   params: { id: string };
 }) {
   const [copied, setCopied] = useState(false);
+  const [project, setProject] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const { user, loading: authLoading } = useAuth();
 
   const embedCode = `<script src="https://cdn.ratecoo.com/widget.js" data-project="${params.id}"></script>`;
+
+  useEffect(() => {
+    const fetchProject = async () => {
+      if (!user || !params.id) return;
+
+      try {
+        setLoading(true);
+        const response = await fetch(`/api/projects/${params.id}`);
+        if (response.ok) {
+          const data = await response.json();
+          // Verify that the user owns this project
+          if (data.user_id !== user.id) {
+            setError("Project not found or access denied");
+          } else {
+            setProject(data);
+          }
+        } else {
+          setError("Failed to load project");
+        }
+      } catch (err) {
+        setError("An error occurred while fetching project");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProject();
+  }, [user, params.id]);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(embedCode);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+
+  if (authLoading || loading) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <p className="text-slate-600 dark:text-slate-400">Please sign in to view project details</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="max-w-7xl mx-auto space-y-6">
+        <div className="flex items-center gap-4">
+          <a
+            href="/dashboard"
+            className="p-2 hover:bg-white dark:hover:bg-slate-700 rounded-lg transition-colors"
+          >
+            <ArrowLeft className="w-5 h-5 text-slate-600 dark:text-slate-400" />
+          </a>
+          <div>
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
+              Project Details
+            </h2>
+          </div>
+        </div>
+        
+        <div className="bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded-lg p-4 text-red-700 dark:text-red-400">
+          {error}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-7xl mx-auto space-y-6">
@@ -31,7 +104,7 @@ export default function ProjectDetailsPage({
           </a>
           <div>
             <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
-              Project #{params.id}
+              {project?.name || `Project #${params.id}`}
             </h2>
             <p className="text-slate-600 dark:text-slate-400 mt-1">Manage your reviews and widget</p>
           </div>
@@ -45,7 +118,7 @@ export default function ProjectDetailsPage({
             Edit Project
           </a>
           <a
-            href={`https://ratecoo.com/${params.id}`}
+            href={`https://ratecoo.com/${project?.slug || params.id}`}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-4 py-2 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"

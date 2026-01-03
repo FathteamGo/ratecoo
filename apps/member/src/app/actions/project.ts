@@ -38,7 +38,7 @@ export async function createProject(
     const userProjects = await database
       .select()
       .from(projects)
-      .where(eq((projects as any).userId ?? (projects as any).user_id, userId));
+      .where(eq(projects.user_id, userId));
 
     const limit = PLAN_LIMITS[tier];
     if (userProjects.length >= limit) {
@@ -82,7 +82,7 @@ export async function getUserProjects(userId: string) {
         api_key: projects.api_key,
       })
       .from(projects)
-      .where(eq((projects as any).user_id, userId));
+      .where(eq(projects.user_id, userId));
 
     // Map to consistent format
     const mappedProjects = userProjects.map(project => ({
@@ -100,10 +100,24 @@ export async function getUserProjects(userId: string) {
 
 export async function updateProject(id: string, userId: string, updates: Partial<typeof projects.$inferInsert>) {
   try {
+    // First, verify that the user owns this project
+    const existingProject = await database
+      .select()
+      .from(projects)
+      .where(
+        eq(projects.id, id)
+      )
+      .limit(1);
+
+    if (existingProject.length === 0 || existingProject[0].user_id !== userId) {
+      return { success: false, error: "Project not found or access denied" };
+    }
+
     // Map the updates to match the database schema
     const dbUpdates: Partial<typeof projects.$inferInsert> = { ...updates };
     
     if (dbUpdates.created_at) delete dbUpdates.created_at;
+    if (dbUpdates.api_key) delete dbUpdates.api_key; // Prevent updating api_key through this function
     if (dbUpdates.apiKey) {
       dbUpdates.api_key = dbUpdates.apiKey;
       delete dbUpdates.apiKey;
@@ -125,6 +139,19 @@ export async function updateProject(id: string, userId: string, updates: Partial
 
 export async function deleteProject(id: string, userId: string) {
   try {
+    // First, verify that the user owns this project
+    const existingProject = await database
+      .select()
+      .from(projects)
+      .where(
+        eq(projects.id, id)
+      )
+      .limit(1);
+
+    if (existingProject.length === 0 || existingProject[0].user_id !== userId) {
+      return { success: false, error: "Project not found or access denied" };
+    }
+
     await database
       .delete(projects)
       .where(

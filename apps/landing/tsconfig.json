@@ -3,7 +3,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@ratecoo/db": ["../../packages/db/src"],
+      "@ratecoo/db/*": ["../../packages/db/src/*"],
+      "@ratecoo/ui": ["../../packages/ui/src"],
+      "@ratecoo/ui/*": ["../../packages/ui/src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
