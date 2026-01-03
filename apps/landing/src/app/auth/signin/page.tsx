@@ -15,9 +15,10 @@ export default function SignInPage() {
     setLoading(true);
 
     try {
-      // TODO: Implement sign in
-      // For now, just redirect to member dashboard
-      router.push("http://localhost:3001/dashboard");
+      // Redirect to member app for authentication
+      const memberAppUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+      window.location.href = `${memberAppUrl}/auth/signin`;
+
     } catch (error) {
       console.error("Sign in failed", error);
     } finally {

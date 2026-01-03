@@ -76,15 +76,25 @@ export default function HomePage() {
                     Pricing
                   </a>
                   <a
-                    href="/auth/signin"
-                    onClick={() => setMobileMenuOpen(false)}
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setMobileMenuOpen(false);
+                      const memberAppUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+                      window.location.href = `${memberAppUrl}/auth/signin`;
+                    }}
                     className="block px-4 py-2 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors font-medium"
                   >
                     Login
                   </a>
                   <a
-                    href="/auth/register"
-                    onClick={() => setMobileMenuOpen(false)}
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setMobileMenuOpen(false);
+                      const memberAppUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+                      window.location.href = `${memberAppUrl}/auth/register`;
+                    }}
                     className="block px-4 py-2 bg-gradient-to-r from-blue-500 to-indigo-500 dark:from-blue-600 dark:to-indigo-600 text-white rounded-lg text-center font-medium shadow-lg"
                   >
                     Get Started Free
@@ -153,7 +163,12 @@ export default function HomePage() {
               className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0"
             >
               <a
-                href="/auth/register"
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const memberAppUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+                  window.location.href = `${memberAppUrl}/auth/register`;
+                }}
                 className="w-full sm:w-auto group px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-indigo-500 dark:from-blue-600 dark:to-indigo-600 text-white rounded-xl hover:shadow-2xl hover:shadow-blue-400/50 dark:hover:shadow-blue-500/50 transition-all duration-300 text-base sm:text-lg font-semibold flex items-center justify-center gap-2 hover:scale-105"
               >
                 Start Free Forever
@@ -333,7 +348,12 @@ export default function HomePage() {
               </ul>
 
               <a
-                href="/auth/register"
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const memberAppUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+                  window.location.href = `${memberAppUrl}/auth/register`;
+                }}
                 className="block w-full px-6 py-3 border-2 border-blue-500 dark:border-blue-600 text-blue-400 dark:text-blue-600 rounded-xl hover:bg-blue-950/40 dark:hover:bg-blue-50 font-semibold text-center transition-all duration-300"
               >
                 Start Free
@@ -432,7 +452,12 @@ export default function HomePage() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
-                href="/auth/register"
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const memberAppUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+                  window.location.href = `${memberAppUrl}/auth/register`;
+                }}
                 className="group px-10 py-4 bg-white text-blue-600 rounded-xl hover:bg-slate-100 text-lg font-bold transition-all duration-300 shadow-2xl hover:shadow-white/50 flex items-center gap-2"
               >
                 Start Free Today

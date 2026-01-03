@@ -23,3 +23,4 @@ export const database = getDb();
 export * from "./schema";
 export * from "./validators";
 export * from "./services";
+export * from "./payment-service";

@@ -18,19 +18,12 @@ export default function RegisterPage() {
     setError("");
 
     try {
-      const res = await fetch("/api/auth/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, password }),
-      });
-
-      if (res.ok) {
-        // Registration successful, redirect to signin
-        router.push("/auth/signin?registered=true");
-      } else {
-        const data = await res.json();
-        setError(data.error || "Registration failed");
-      }
+      // Redirect to member app for registration
+      const memberAppUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+      // Pass the user data as query parameters
+      const encodedName = encodeURIComponent(name);
+      const encodedEmail = encodeURIComponent(email);
+      window.location.href = `${memberAppUrl}/auth/register?name=${encodedName}&email=${encodedEmail}`;
     } catch (err) {
       setError("Registration failed");
     } finally {

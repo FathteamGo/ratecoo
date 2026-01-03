@@ -70,7 +70,7 @@ export default function Dashboard() {
             </div>
             <p className="text-sm font-medium opacity-90 mb-1">Current Plan</p>
             <p className="text-3xl font-bold">Free</p>
-            <a href="#" className="text-xs font-medium hover:underline mt-2 inline-block">
+            <a href="/payment" className="text-xs font-medium hover:underline mt-2 inline-block">
               Upgrade to Pro →
             </a>
           </div>

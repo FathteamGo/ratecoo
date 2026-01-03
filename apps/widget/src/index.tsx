@@ -1,6 +1,8 @@
 import { h, render } from "preact";
 import { useState, useEffect } from "preact/hooks";
 
+
+
 interface WidgetConfig {
   id: string;
   name: string;
@@ -63,7 +65,8 @@ function ReviewWidget({ projectId }: { projectId: string }) {
     }
 
     // Fetch widget config using absolute URL
-    fetch(`https://admin.ratecoo.com/api/custom/widget/${projectId}`)
+    const apiUrl = (window as any).RATECOO_API_URL || 'https://admin.ratecoo.com';
+    fetch(`${apiUrl}/api/custom/widget/${projectId}`)
       .then((res) => res.json())
       .then((data) => {
         setConfig(data);
@@ -100,8 +103,9 @@ function ReviewWidget({ projectId }: { projectId: string }) {
     }
 
     try {
+      const apiUrl = (window as any).RATECOO_API_URL || 'https://admin.ratecoo.com';
       const res = await fetch(
-        `https://admin.ratecoo.com/api/reviews`, // Use the correct endpoint
+        `${apiUrl}/api/reviews`, // Use the correct endpoint
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
